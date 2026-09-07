@@ -66,7 +66,7 @@ export function EventsSection({
             return (
               <li key={event.id} className={`relative ${isInvited ? "" : "opacity-60"}`}>
                 <span className="absolute -left-9 top-0 grid size-8 place-items-center rounded-full border border-accent-secondary/60 bg-surface text-accent-primary">
-                  <EventIcon kind={event.icon} className="size-4" />
+                  <EventIcon kind={event.icon ?? "sparkle"} className="size-4" />
                 </span>
                 <h3 className="font-heading text-heading uppercase tracking-[0.22em] text-accent-primary">
                   {event.name}
