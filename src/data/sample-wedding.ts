@@ -13,7 +13,17 @@ export const sampleWedding: WeddingData = {
     ambientAudioUrl: null,
     audioDefaultMuted: true,
   },
+  preview: {
+    eyebrowLabel: "Together with their families",
+    coupleNames: ["Kavya", "Rohan"],
+    dateLabel: "04 . 12 . 2026",
+    tagline: "Two families, one celebration — and a whole lot of marigolds.",
+    ctaLabel: "Open Invitation",
+    ctaSubtext: "Tap to begin our story",
+    guestLineTemplate: "For {{guestName}}",
+  },
   invitation: {
+
     eyebrowLabel: "with the blessings of our families",
     coupleNames: ["Kavya", "Rohan"],
     weddingDate: "2026-12-04",
