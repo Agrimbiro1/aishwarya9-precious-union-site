@@ -108,7 +108,9 @@ export type ContactPerson = {
 export type WeddingData = {
   coupleSlug: string;
   opening: OpeningData;
+  preview: PreviewData;
   invitation: InvitationData;
+
   couple: CoupleData;
   countdown: CountdownData;
   events: WeddingEvent[];
