@@ -159,6 +159,25 @@ const guestDirectory: Record<string, Guest> = {
     allowedGuestCount: null,
     rsvpStatus: "pending",
   },
+  submitted: {
+    guestId: "g_done1",
+    displayName: "Vikram Iyer",
+    guestGroup: "Groom's Friends",
+    invitedEvents: ["sangeet", "wedding", "reception"],
+    allowedGuestCount: 3,
+    rsvpStatus: "yes",
+    rsvpResponse: {
+      name: "Vikram Iyer",
+      attending: true,
+      guestCount: 2,
+      mealPreference: "Vegetarian",
+      attendingEvents: ["wedding", "reception"],
+      noteToCouple: "Wouldn't miss it for the world!",
+    },
+    language: "en",
+    side: "groom",
+  },
+
 };
 
 export async function resolveGuestToken(token: string | null): Promise<Guest | null> {
