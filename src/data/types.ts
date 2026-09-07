@@ -104,6 +104,12 @@ export type RsvpResponse = {
 
 export type GalleryItem = { id: string; imageUrl: string; caption?: string | null };
 
+export type GalleryConfig = {
+  sectionLabel: string;
+  supportingLine?: string | null;
+  /** Shown (with an illustrated placeholder) when no photos exist yet. */
+  emptyStateLine: string;
+};
 
 export type FamilyMember = {
   id: string;
@@ -111,6 +117,15 @@ export type FamilyMember = {
   relation: string;
   side: "bride" | "groom" | "both";
   imageUrl?: string | null;
+};
+
+export type FamilyConfig = {
+  sectionLabel: string;
+  supportingLine?: string | null;
+  brideSideLabel: string;
+  groomSideLabel: string;
+  /** Members shown per group before "show more" (keeps 40-person lists usable). */
+  initialVisiblePerGroup: number;
 };
 
 export type Wish = {
@@ -121,12 +136,33 @@ export type Wish = {
   guestId?: string | null;
 };
 
+export type WishesConfig = {
+  sectionLabel: string;
+  supportingLine?: string | null;
+  emptyStateLine: string;
+  placeholder: string;
+  maxLength: number;
+  /** Spam guard: wishes allowed per visitor and the pause between them. */
+  maxPerVisitor: number;
+  cooldownSeconds: number;
+};
+
 export type TravelOption = {
   id: string;
   kind: "flight" | "train" | "road" | "shuttle" | "stay";
   title: string;
   detail: string;
   link?: string | null;
+  /** Editable via data only — never hardcoded in components. */
+  bookingCode?: string | null;
+  priceNote?: string | null;
+};
+
+export type TravelConfig = {
+  sectionLabel: string;
+  supportingLine?: string | null;
+  gettingThereLabel: string;
+  stayLabel: string;
 };
 
 export type ContactPerson = {
@@ -135,6 +171,22 @@ export type ContactPerson = {
   role: string;
   phone?: string | null;
   whatsapp?: string | null;
+};
+
+export type ContactConfig = {
+  sectionLabel: string;
+  supportingLine?: string | null;
+  /** Photographic backdrop for this one section (framed to match the system). */
+  backgroundImageUrl?: string | null;
+};
+
+export type FooterData = {
+  closingLine: string;
+  hashtag?: string | null;
+  monogramText: string;
+  shareLabel?: string;
+  shareMessage?: string;
+  creditLine?: string | null;
 };
 
 export type WeddingData = {
@@ -150,9 +202,15 @@ export type WeddingData = {
   rsvp: RsvpConfig;
 
   gallery: GalleryItem[];
+  galleryConfig: GalleryConfig;
   family: FamilyMember[];
+  familyConfig: FamilyConfig;
   wishes: Wish[];
+  wishesConfig: WishesConfig;
   travel: TravelOption[];
+  travelConfig: TravelConfig;
   contacts: ContactPerson[];
-  footer: { closingLine: string; hashtag?: string | null; monogramText: string };
+  contactConfig: ContactConfig;
+  footer: FooterData;
 };
+

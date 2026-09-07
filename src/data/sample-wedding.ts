@@ -1,4 +1,6 @@
 import type { WeddingData, Guest } from "./types";
+import contactBg from "@/assets/contact-bg.jpg.asset.json";
+
 
 /**
  * Sample content only — swap this object per couple with zero code changes.
@@ -112,17 +114,131 @@ export const sampleWedding: WeddingData = {
     defaultMaxGuests: 4,
   },
 
+  /* Empty on purpose — demonstrates the illustrated gallery placeholder. */
   gallery: [],
-  family: [],
+  galleryConfig: {
+    sectionLabel: "Our Album",
+    supportingLine: "A few of our favourite moments so far.",
+    emptyStateLine: "Photographs are being picked out — do come back closer to the day.",
+  },
+  family: [
+    { id: "b1", name: "Mr. Anil Sharma", relation: "Father of the bride", side: "bride" },
+    { id: "b2", name: "Mrs. Meera Sharma", relation: "Mother of the bride", side: "bride" },
+    { id: "b3", name: "Aarav Sharma", relation: "Brother of the bride", side: "bride" },
+    { id: "b4", name: "Ishita Sharma", relation: "Sister of the bride", side: "bride" },
+    { id: "b5", name: "Mrs. Radhika Sharma", relation: "Aunt of the bride", side: "bride" },
+    { id: "b6", name: "Mr. Suresh Sharma", relation: "Uncle of the bride", side: "bride" },
+    { id: "b7", name: "Smt. Kamala Devi", relation: "Grandmother of the bride", side: "bride" },
+    { id: "b8", name: "Shri Gopal Sharma", relation: "Grandfather of the bride", side: "bride" },
+    { id: "b9", name: "Nidhi Sharma", relation: "Cousin of the bride", side: "bride" },
+    { id: "b10", name: "Tanvi Sharma", relation: "Cousin of the bride", side: "bride" },
+    { id: "b11", name: "Kabir Malhotra", relation: "Cousin of the bride", side: "bride" },
+    { id: "b12", name: "Ananya Deshpande", relation: "Bridesmaid", side: "bride" },
+    { id: "g1", name: "Mr. Rajesh Iyer", relation: "Father of the groom", side: "groom" },
+    { id: "g2", name: "Mrs. Lakshmi Iyer", relation: "Mother of the groom", side: "groom" },
+    { id: "g3", name: "Vikram Iyer", relation: "Brother of the groom", side: "groom" },
+    { id: "g4", name: "Shruti Iyer", relation: "Sister of the groom", side: "groom" },
+    { id: "g5", name: "Smt. Padmavathi Srinivasan", relation: "Grandmother of the groom", side: "groom" },
+    { id: "g6", name: "Shri Venkataraman Iyer", relation: "Grandfather of the groom", side: "groom" },
+    { id: "g7", name: "Mr. Prakash Iyer", relation: "Uncle of the groom", side: "groom" },
+    { id: "g8", name: "Mrs. Sudha Iyer", relation: "Aunt of the groom", side: "groom" },
+    { id: "g9", name: "Rahul Menon", relation: "Cousin of the groom", side: "groom" },
+    { id: "g10", name: "Divya Menon", relation: "Cousin of the groom", side: "groom" },
+    { id: "g11", name: "Arjun Nair", relation: "Groomsman", side: "groom" },
+    { id: "g12", name: "Karthik Rao", relation: "Groomsman", side: "groom" },
+    { id: "x1", name: "Laddoo", relation: "Chief tail-wagger", side: "both" },
+  ],
+  familyConfig: {
+    sectionLabel: "Our Families",
+    supportingLine: "The people who made this celebration possible.",
+    brideSideLabel: "Bride's Family",
+    groomSideLabel: "Groom's Family",
+    initialVisiblePerGroup: 6,
+  },
+  /* Empty on purpose — demonstrates the "be the first" wishing-wall state. */
   wishes: [],
-  travel: [],
-  contacts: [],
+  wishesConfig: {
+    sectionLabel: "Wishing Wall",
+    supportingLine: "Leave a blessing for us to read on the morning of the wedding.",
+    emptyStateLine: "Be the first to leave a wish!",
+    placeholder: "Write your blessing…",
+    maxLength: 280,
+    maxPerVisitor: 3,
+    cooldownSeconds: 30,
+  },
+  travel: [
+    {
+      id: "flight",
+      kind: "flight",
+      title: "By air",
+      detail: "Jaipur International (JAI) — 30 minutes from Hotel Rambagh.",
+      link: "https://www.google.com/flights?q=Jaipur",
+      bookingCode: "KR-AIR-2026",
+      priceNote: "Group fare available until 1 November.",
+    },
+    {
+      id: "train",
+      kind: "train",
+      title: "By train",
+      detail: "Jaipur Junction is well connected from Delhi and Mumbai.",
+      link: "https://www.irctc.co.in",
+    },
+    {
+      id: "road",
+      kind: "road",
+      title: "By road",
+      detail: "About 5 hours from Delhi on NH48 — parking available at all venues.",
+    },
+    {
+      id: "shuttle",
+      kind: "shuttle",
+      title: "Wedding shuttle",
+      detail: "Complimentary shuttles run between Hotel Rambagh and Amrit Bagh every 30 minutes.",
+    },
+    {
+      id: "rambagh",
+      kind: "stay",
+      title: "Hotel Rambagh",
+      detail: "Our main venue hotel — most functions are on the property.",
+      link: "https://example.com/rambagh",
+      bookingCode: "KAVYAROHAN",
+      priceNote: "From ₹8,500 per night with our code.",
+    },
+    {
+      id: "havelistay",
+      kind: "stay",
+      title: "Amrit Haveli",
+      detail: "A quieter heritage option, 10 minutes from the wedding venue.",
+      link: "https://example.com/haveli",
+      bookingCode: "KR-HAVELI",
+    },
+  ],
+  travelConfig: {
+    sectionLabel: "Travel & Stay",
+    supportingLine: "Everything you need to reach us comfortably.",
+    gettingThereLabel: "Getting There",
+    stayLabel: "Where to Stay",
+  },
+  contacts: [
+    { id: "c1", name: "Aarav Sharma", role: "Bride's brother", phone: "+911234567890", whatsapp: "911234567890" },
+    { id: "c2", name: "Vikram Iyer", role: "Groom's brother", phone: "+919876543210", whatsapp: "919876543210" },
+    { id: "c3", name: "Nidhi Sharma", role: "Guest coordinator", phone: "+919812345678" },
+  ],
+  contactConfig: {
+    sectionLabel: "Need a Hand?",
+    supportingLine: "Call or message any of us — we're happy to help with anything.",
+    backgroundImageUrl: contactBg.url,
+  },
   footer: {
     closingLine: "We can't wait to celebrate with you",
     hashtag: "#KavyaFoundRohan",
     monogramText: "K & R",
+    shareLabel: "Share this invitation",
+    shareMessage: "You're invited to Kavya & Rohan's wedding — 4 December 2026, Jaipur.",
+    creditLine: "Made with love, for our families.",
   },
 };
+
 
 /**
  * Stand-in for the backend guest-token lookup (PRD §6.1).

@@ -177,3 +177,117 @@ export function DovesWithRibbon({ className = "" }: { className?: string }) {
     </svg>
   );
 }
+
+/** Illustrated stand-in when a couple hasn't uploaded photographs yet. */
+export function PhotoPlaceholder({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 150" className={className} fill="none" aria-hidden="true">
+      <rect x="8" y="8" width="104" height="134" rx="8" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M20 112c14-18 22-26 32-26s16 8 26 20" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+      <circle cx="44" cy="58" r="9" stroke="currentColor" strokeWidth="1.4" />
+      <circle cx="72" cy="66" r="7" stroke="currentColor" strokeWidth="1.4" />
+      <path d="M32 40c0-6 6-10 10-6M84 46c2-6-2-11-7-9" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+      <path d="M20 128h80" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+/** Generic hand-drawn silhouette used when a family member has no illustration. */
+export function PersonSilhouette({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 60 72" className={className} fill="none" aria-hidden="true">
+      <circle cx="30" cy="22" r="11" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M10 68c2-16 10-24 20-24s18 8 20 24" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+/** Travel icons drawn in the same line style as the timeline icons. */
+export function TravelIcon({
+  kind = "road",
+  className = "",
+}: {
+  kind?: "flight" | "train" | "road" | "shuttle" | "stay";
+  className?: string;
+}) {
+  const paths: Record<string, ReactElement> = {
+    flight: (
+      <path
+        d="M4 18l24-4 4-8 3 7 9-1-9 6 1 9-4-6-24 5v-8Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+    ),
+    train: (
+      <>
+        <rect x="9" y="5" width="14" height="19" rx="4" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M11 12h10M13 28l-3 3M19 28l3 3M14 20h4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+      </>
+    ),
+    road: (
+      <>
+        <path d="M5 21h22l-3-7H8Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+        <circle cx="10" cy="24" r="2.5" stroke="currentColor" strokeWidth="1.4" />
+        <circle cx="22" cy="24" r="2.5" stroke="currentColor" strokeWidth="1.4" />
+      </>
+    ),
+    shuttle: (
+      <>
+        <rect x="5" y="8" width="22" height="13" rx="3" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M9 12h6M18 12h5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+        <circle cx="10" cy="24" r="2.4" stroke="currentColor" strokeWidth="1.4" />
+        <circle cx="22" cy="24" r="2.4" stroke="currentColor" strokeWidth="1.4" />
+      </>
+    ),
+    stay: (
+      <>
+        <path d="M5 26V13l11-7 11 7v13" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+        <path d="M12 26v-7h8v7M5 26h22" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+      </>
+    ),
+  };
+  return (
+    <svg viewBox="0 0 32 32" className={className} fill="none" aria-hidden="true">
+      {paths[kind] ?? paths["road"]}
+    </svg>
+  );
+}
+
+/** Hand-drawn venue sketch used as the Travel & Stay header motif. */
+export function VenueSketch({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 200 90" className={className} fill="none" aria-hidden="true">
+      <path d="M8 82h184" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+      <path d="M56 82V34l14-12 14 12v48" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+      <path d="M84 82V50h56l14 12v20" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+      <path d="M66 44h8M66 56h8M96 66h10v16H96zM118 66h10v16h-10z" stroke="currentColor" strokeWidth="1.3" />
+      <path d="M70 22v-8M30 82c-4-14 4-22 12-20M176 82c4-12-4-20-12-18" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+/** Wedding car with heart balloons — footer motif. */
+export function WeddingCar({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 200 120" className={className} fill="none" aria-hidden="true">
+      <path d="M40 92V52c0-6 5-10 12-10h56c7 0 12 4 12 10v40" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M54 54h52v14H54zM36 92h92" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <circle cx="56" cy="98" r="7" stroke="currentColor" strokeWidth="1.8" />
+      <circle cx="110" cy="98" r="7" stroke="currentColor" strokeWidth="1.8" />
+      <path
+        d="M126 44c10-16 22-26 30-24M140 40c8-18 20-24 28-20"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+      />
+      <path
+        d="M152 18c-4-6 2-11 6-7 4-4 10 1 6 7l-6 7Zm22 6c-4-6 2-11 6-7 4-4 10 1 6 7l-6 7Z"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
