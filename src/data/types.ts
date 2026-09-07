@@ -146,6 +146,9 @@ export type WeddingData = {
   couple: CoupleData;
   countdown: CountdownData;
   events: WeddingEvent[];
+  eventsConfig: EventsConfig;
+  rsvp: RsvpConfig;
+
   gallery: GalleryItem[];
   family: FamilyMember[];
   wishes: Wish[];
