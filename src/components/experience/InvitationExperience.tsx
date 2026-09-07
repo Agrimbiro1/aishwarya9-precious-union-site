@@ -17,7 +17,7 @@ export function InvitationExperience({ children }: { children: ReactNode }) {
         backgroundAttachment: "local",
       }}
     >
-      <div className="relative">{children}</div>
+      <div className="relative bg-background/45">{children}</div>
 
     </div>
   );
