@@ -44,6 +44,10 @@ function Page() {
         <InvitationExperience locked={!unlocked}>
           <InvitationSection data={data.invitation} />
           <CoupleSection data={data.couple} />
+          <CountdownSection data={data.countdown} />
+          <EventsSection events={data.events} config={data.eventsConfig} />
+          <RsvpSection config={data.rsvp} events={data.events} />
+
         </InvitationExperience>
         <OpeningAnimation
           data={data.opening}
