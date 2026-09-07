@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Section } from "./InvitationExperience";
 import { Divider, DovesWithRibbon } from "./Ornaments";
 import type { RsvpConfig, RsvpResponse, WeddingEvent } from "@/data/types";
@@ -58,6 +58,20 @@ export function RsvpSection({
   );
   const [note, setNote] = useState(existing?.noteToCouple ?? "");
   const [state, setState] = useState<"idle" | "sending" | "error">("idle");
+
+  /* Guest data resolves asynchronously — adopt name and saved response once. */
+  useEffect(() => {
+    if (guest.status !== "resolved") return;
+    setName((prev) => (prev ? prev : guest.name));
+    if (existing) {
+      setSaved(existing);
+      setAttending(existing.attending);
+      setGuestCount(Math.min(existing.guestCount || 1, maxGuests));
+      if (existing.mealPreference) setMeal(existing.mealPreference);
+      if (existing.attendingEvents.length) setPicked(existing.attendingEvents);
+      setNote(existing.noteToCouple ?? "");
+    }
+  }, [guest.status, guest.name, existing, maxGuests]);
 
   const nameError = name.trim().length === 0 ? "Please tell us your name." : "";
   const countError = guestCount > maxGuests ? `Your invitation covers ${maxGuests}.` : "";
