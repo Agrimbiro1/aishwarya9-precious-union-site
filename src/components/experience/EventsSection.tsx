@@ -3,19 +3,7 @@ import { Section } from "./InvitationExperience";
 import { EventIcon } from "./Ornaments";
 import type { EventsConfig, WeddingEvent } from "@/data/types";
 import { useGuest } from "@/lib/guest";
-
-function formatWhen(value: string | null | undefined): string {
-  if (!value) return "";
-  const d = new Date(value);
-  if (Number.isNaN(d.getTime())) return "";
-  return d.toLocaleString("en-IN", {
-    weekday: "short",
-    day: "numeric",
-    month: "short",
-    hour: "numeric",
-    minute: "2-digit",
-  });
-}
+import { formatEventWhen } from "@/lib/format";
 
 /**
  * Events timeline. Guest scoping: events outside guest.invitedEvents are either
@@ -62,7 +50,7 @@ export function EventsSection({
             className="absolute bottom-2 left-[0.95rem] top-2 w-px bg-accent-secondary/55"
           />
           {visible.map(({ event, invited: isInvited }) => {
-            const when = formatWhen(event.dateTime);
+            const when = formatEventWhen(event.dateTime);
             return (
               <li key={event.id} className={`relative ${isInvited ? "" : "opacity-60"}`}>
                 <span className="absolute -left-9 top-0 grid size-8 place-items-center rounded-full border border-accent-secondary/60 bg-surface text-accent-primary">
