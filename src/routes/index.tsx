@@ -36,6 +36,7 @@ function Page() {
   return (
     <GuestProvider>
       <PhoneStage>
+        <div className="relative h-full w-full overflow-hidden">
         <InvitationExperience locked={!unlocked}>
           <InvitationSection data={data.invitation} />
           <CoupleSection data={data.couple} />
@@ -45,6 +46,7 @@ function Page() {
           preview={data.preview}
           onOpened={() => setUnlocked(true)}
         />
+        </div>
       </PhoneStage>
     </GuestProvider>
   );

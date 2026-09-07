@@ -88,7 +88,7 @@ export function OpeningAnimation({
   const leaving = phase === "leaving";
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden">
+    <div className="absolute inset-0 z-50 overflow-hidden">
       {/* revealed backdrop */}
       <div className="absolute inset-0 bg-background" />
 
@@ -195,7 +195,7 @@ function AudioToggle({
         type="button"
         onClick={onToggle}
         aria-label={muted ? "Play background music" : "Mute background music"}
-        className="fixed bottom-6 right-5 z-40 grid size-12 min-h-11 min-w-11 place-items-center rounded-full bg-accent-primary text-surface shadow-lg"
+        className="absolute bottom-6 right-5 z-40 grid size-12 min-h-11 min-w-11 place-items-center rounded-full bg-accent-primary text-surface shadow-lg"
       >
         {muted ? <VolumeX className="size-5" /> : <Volume2 className="size-5" />}
       </button>
