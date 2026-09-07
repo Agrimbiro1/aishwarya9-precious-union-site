@@ -17,7 +17,7 @@ export function InvitationSection({ data }: { data: InvitationData }) {
   const isLongName = names.some((n) => n.length > 12);
 
   return (
-    <Section id="invitation" className="relative overflow-hidden pt-16 text-center">
+    <Section id="invitation" className="relative flex min-h-full flex-col justify-center overflow-hidden pt-16 text-center">
       {/* arch ornament */}
       <div className="pointer-events-none absolute inset-x-0 top-6 text-accent-secondary">
         <RibbonBow className="mx-auto h-14 w-[78%]" />

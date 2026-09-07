@@ -6,10 +6,18 @@ import phoneTexture from "@/assets/phone-texture.png.asset.json";
  * children; the watercolour texture sits behind all of them as a fixed layer
  * so it never affects any section's content box (PRD §5.4).
  */
-export function InvitationExperience({ children }: { children: ReactNode }) {
+export function InvitationExperience({
+  children,
+  locked = false,
+}: {
+  children: ReactNode;
+  locked?: boolean;
+}) {
   return (
     <div
-      className="relative h-full w-full overflow-y-auto overflow-x-hidden bg-background text-ink"
+      className={`relative h-full w-full overflow-x-hidden bg-background text-ink ${
+        locked ? "overflow-y-hidden" : "overflow-y-auto"
+      }`}
       style={{
         backgroundImage: `url(${phoneTexture.url})`,
         backgroundSize: "100% auto",
@@ -18,10 +26,10 @@ export function InvitationExperience({ children }: { children: ReactNode }) {
       }}
     >
       <div className="relative bg-background/45">{children}</div>
-
     </div>
   );
 }
+
 
 /** Consistent section wrapper: shared gutters and vertical rhythm. */
 export function Section({

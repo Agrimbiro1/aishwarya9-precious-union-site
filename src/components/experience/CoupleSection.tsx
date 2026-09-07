@@ -17,8 +17,12 @@ export function CoupleSection({ data }: { data: CoupleData }) {
   const dateLine = data.eventDateShort || formatLongDate(null);
 
   return (
-    <Section id="couple" className="relative text-center">
+    <Section id="couple" className="relative flex min-h-full flex-col justify-center border-t border-accent-secondary/30 text-center">
+      <p className="mb-6 font-heading text-label uppercase tracking-[0.34em] text-accent-primary/80">
+        The Couple
+      </p>
       <div className="relative mx-auto max-w-[19rem] rounded-[2rem] border border-accent-secondary/45 bg-surface/70 px-5 pb-8 pt-9">
+
         <FloralCorner className="pointer-events-none absolute -left-2 -top-2 h-20 w-20 text-accent-secondary" />
         <FloralCorner className="pointer-events-none absolute -right-2 -top-2 h-20 w-20 rotate-90 text-accent-secondary" />
         <FloralCorner className="pointer-events-none absolute -bottom-2 -left-2 h-20 w-20 -rotate-90 text-accent-secondary" />
