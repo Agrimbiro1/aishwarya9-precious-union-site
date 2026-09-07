@@ -53,7 +53,7 @@ export function CountdownSection({ data }: { data: CountdownData }) {
     return () => window.clearInterval(id);
   }, [target, valid, reduced]);
 
-  const past = (valid && mounted && parts === null) || !valid;
+  const past = valid && mounted && parts === null;
 
   const units: Array<{ label: string; value: number | null }> = [
     { label: "Days", value: parts ? parts.days : null },
@@ -106,7 +106,7 @@ export function CountdownSection({ data }: { data: CountdownData }) {
                       reduced ? "" : "transition-transform duration-500"
                     }`}
                   >
-                    {String(u.value).padStart(2, "0")}
+                    {u.value === null ? "--" : String(u.value).padStart(2, "0")}
                   </span>
                   <span className="mt-2 block font-heading text-[0.58rem] uppercase tracking-[0.18em] text-ink/60">
                     {u.label}
