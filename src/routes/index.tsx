@@ -9,8 +9,15 @@ import { CoupleSection } from "@/components/experience/CoupleSection";
 import { CountdownSection } from "@/components/experience/CountdownSection";
 import { EventsSection } from "@/components/experience/EventsSection";
 import { RsvpSection } from "@/components/experience/RsvpSection";
+import { GallerySection } from "@/components/experience/GallerySection";
+import { FamilySection } from "@/components/experience/FamilySection";
+import { WishesSection } from "@/components/experience/WishesSection";
+import { TravelSection } from "@/components/experience/TravelSection";
+import { ContactSection } from "@/components/experience/ContactSection";
+import { FooterSection } from "@/components/experience/FooterSection";
 
 import { sampleWedding } from "@/data/sample-wedding";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -46,7 +53,14 @@ function Page() {
           <CoupleSection data={data.couple} />
           <CountdownSection data={data.countdown} />
           <EventsSection events={data.events} config={data.eventsConfig} />
+          <GallerySection items={data.gallery} config={data.galleryConfig} />
+          <FamilySection members={data.family} config={data.familyConfig} />
+          <WishesSection wishes={data.wishes} config={data.wishesConfig} />
           <RsvpSection config={data.rsvp} events={data.events} />
+          <TravelSection options={data.travel} config={data.travelConfig} />
+          <ContactSection people={data.contacts} config={data.contactConfig} />
+          <FooterSection data={data.footer} />
+
 
         </InvitationExperience>
         <OpeningAnimation

@@ -1,4 +1,6 @@
 import type { WeddingData, Guest } from "./types";
+import contactBg from "@/assets/contact-bg.jpg.asset.json";
+
 
 /**
  * Sample content only — swap this object per couple with zero code changes.
