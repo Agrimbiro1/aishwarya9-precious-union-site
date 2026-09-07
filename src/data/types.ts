@@ -25,6 +25,16 @@ export type OpeningData = {
   audioDefaultMuted: boolean;
 };
 
+export type PreviewData = {
+  eyebrowLabel: string;
+  coupleNames: string[];
+  dateLabel: string;
+  tagline?: string | null;
+  ctaLabel: string;
+  ctaSubtext: string;
+  guestLineTemplate: string;
+};
+
 export type InvitationData = {
   eyebrowLabel: string;
   coupleNames: string[];
@@ -32,6 +42,7 @@ export type InvitationData = {
   formalWording: string;
   guestGreetingTemplate: string;
 };
+
 
 export type Pet = { name: string; type: string; imageUrl?: string | null };
 
