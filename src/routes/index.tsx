@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { GuestProvider } from "@/lib/guest";
 import { PhoneStage } from "@/components/experience/PhoneStage";
@@ -30,16 +31,21 @@ export const Route = createFileRoute("/")({
 
 function Page() {
   const data = sampleWedding;
+  const [unlocked, setUnlocked] = useState(false);
+
   return (
     <GuestProvider>
       <PhoneStage>
-        <InvitationExperience>
-          <OpeningAnimation data={data.opening} />
+        <InvitationExperience locked={!unlocked}>
           <InvitationSection data={data.invitation} />
           <CoupleSection data={data.couple} />
         </InvitationExperience>
+        <OpeningAnimation
+          data={data.opening}
+          preview={data.preview}
+          onOpened={() => setUnlocked(true)}
+        />
       </PhoneStage>
     </GuestProvider>
   );
 }
-
