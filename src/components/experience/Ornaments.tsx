@@ -86,3 +86,93 @@ export function Divider({ className = "" }: { className?: string }) {
     </svg>
   );
 }
+
+/** Small hand-drawn timeline icons, keyed by event icon name. */
+export function EventIcon({
+  kind = "sparkle",
+  className = "",
+}: {
+  kind?: "sparkle" | "glass" | "ring" | "cake" | "music" | "flower";
+  className?: string;
+}) {
+  const paths: Record<string, JSX.Element> = {
+    sparkle: (
+      <path
+        d="M16 4v24M4 16h24M8 8l16 16M24 8 8 24"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    ),
+    glass: (
+      <>
+        <path d="M9 6h14l-7 9Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+        <path d="M16 15v11M11 26h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      </>
+    ),
+    ring: (
+      <>
+        <circle cx="16" cy="19" r="7.5" stroke="currentColor" strokeWidth="1.5" />
+        <path d="m16 8 3 3.5h-6L16 8Z" stroke="currentColor" strokeWidth="1.5" />
+      </>
+    ),
+    cake: (
+      <>
+        <path d="M6 26V16h20v10Z" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M6 20h20M16 12v4M16 8v1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      </>
+    ),
+    music: (
+      <>
+        <circle cx="11" cy="23" r="3.5" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="23" cy="20" r="3.5" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M14.5 23V9l12-3v14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      </>
+    ),
+    flower: (
+      <>
+        <circle cx="16" cy="13" r="3" stroke="currentColor" strokeWidth="1.5" />
+        <path
+          d="M16 10c-2-4 4-4 0 0Zm3 3c4-2 4 4 0 0Zm-6 0c-4-2-4 4 0 0Zm3 3c-2 4 4 4 0 0ZM16 17v9"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
+      </>
+    ),
+  };
+  return (
+    <svg viewBox="0 0 32 32" className={className} fill="none" aria-hidden="true">
+      {paths[kind] ?? paths["sparkle"]}
+    </svg>
+  );
+}
+
+/** Two doves holding a ribbon bow — RSVP section header motif. */
+export function DovesWithRibbon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 260 90" className={className} fill="none" aria-hidden="true">
+      <path
+        d="M18 44c14-16 30-20 44-12 6 4 8 10 6 16-8 4-18 4-28-2 8 10 20 14 32 12"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M242 44c-14-16-30-20-44-12-6 4-8 10-6 16 8 4 18 4 28-2-8 10-20 14-32 12"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M112 46c-8-6-16-4-16 2s10 8 14 2c4-6 12-8 16-2s12 4 14-2-8-8-16-2"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+      <path d="M120 52c-4 10-8 16-14 22M140 52c4 10 8 16 14 22" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <circle cx="62" cy="34" r="1.6" fill="currentColor" />
+      <circle cx="198" cy="34" r="1.6" fill="currentColor" />
+    </svg>
+  );
+}
