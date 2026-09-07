@@ -6,6 +6,10 @@ import { InvitationExperience } from "@/components/experience/InvitationExperien
 import { OpeningAnimation } from "@/components/experience/OpeningAnimation";
 import { InvitationSection } from "@/components/experience/InvitationSection";
 import { CoupleSection } from "@/components/experience/CoupleSection";
+import { CountdownSection } from "@/components/experience/CountdownSection";
+import { EventsSection } from "@/components/experience/EventsSection";
+import { RsvpSection } from "@/components/experience/RsvpSection";
+
 import { sampleWedding } from "@/data/sample-wedding";
 
 export const Route = createFileRoute("/")({
@@ -40,6 +44,10 @@ function Page() {
         <InvitationExperience locked={!unlocked}>
           <InvitationSection data={data.invitation} />
           <CoupleSection data={data.couple} />
+          <CountdownSection data={data.countdown} />
+          <EventsSection events={data.events} config={data.eventsConfig} />
+          <RsvpSection config={data.rsvp} events={data.events} />
+
         </InvitationExperience>
         <OpeningAnimation
           data={data.opening}
