@@ -1,3 +1,4 @@
+import type { ReactElement } from "react";
 /**
  * Hand-drawn style ornaments used across sections. Pure SVG so they inherit
  * the locked palette (currentColor = accent tokens) and never load images.
@@ -95,7 +96,7 @@ export function EventIcon({
   kind?: "sparkle" | "glass" | "ring" | "cake" | "music" | "flower";
   className?: string;
 }) {
-  const paths: Record<string, JSX.Element> = {
+  const paths: Record<string, ReactElement> = {
     sparkle: (
       <path
         d="M16 4v24M4 16h24M8 8l16 16M24 8 8 24"
