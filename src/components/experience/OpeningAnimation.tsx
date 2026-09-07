@@ -161,7 +161,7 @@ function Panel({ side, parted }: { side: "left" | "right"; parted: boolean }) {
         [side]: 0,
         transformOrigin: side === "left" ? "top left" : "top right",
         transform: parted
-          ? `translateX(${side === "left" ? "-104%" : "104%"}) rotate(${sway}deg) skewY(${-sway / 2}deg)`
+          ? `translateX(${side === "left" ? "-118%" : "118%"}) rotate(${sway}deg) skewY(${-sway / 2}deg)`
           : "translateX(0) rotate(0deg)",
         transition: "transform 1.25s cubic-bezier(0.42, 0.02, 0.25, 1)",
         filter: `drop-shadow(${side === "left" ? "14px" : "-14px"} 0 34px oklch(0.2 0.06 30 / 0.55))`,
