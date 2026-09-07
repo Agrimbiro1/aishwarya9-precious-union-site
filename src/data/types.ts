@@ -63,15 +63,47 @@ export type CountdownData = {
 export type WeddingEvent = {
   id: string;
   name: string;
-  dateTime: string;
+  /** ISO datetime, or null/"" when the time is still to be announced. */
+  dateTime: string | null;
   venueName: string;
   venueAddress?: string | null;
   dressCode?: string | null;
   note?: string | null;
   mapUrl?: string | null;
+  icon?: "sparkle" | "glass" | "ring" | "cake" | "music" | "flower";
+};
+
+export type DressCode = { global?: string | null; colorPalette?: string[] };
+
+/** Per-couple choice for functions the guest isn't invited to (PRD §8.5). */
+export type EventsConfig = {
+  sectionLabel: string;
+  uninvitedEventDisplay: "hide" | "special-invitation";
+  specialInvitationLabel: string;
+  collapseAfter: number;
+  dressCode?: DressCode | null;
+};
+
+export type RsvpConfig = {
+  headline: string;
+  supportingLine?: string | null;
+  mealOptions: string[];
+  eventsAvailableForRsvp: string[];
+  deadline?: string | null;
+  defaultMaxGuests: number;
+};
+
+export type RsvpResponse = {
+  attending: boolean;
+  guestCount: number;
+  mealPreference?: string | null;
+  attendingEvents: string[];
+  noteToCouple?: string | null;
+  name?: string | null;
 };
 
 export type GalleryItem = { id: string; imageUrl: string; caption?: string | null };
+
 
 export type FamilyMember = {
   id: string;
