@@ -41,28 +41,27 @@ export function CountdownSection({ data }: { data: CountdownData }) {
   const target = new Date(data.targetDateTime).getTime();
   const valid = !Number.isNaN(target);
 
-  const [parts, setParts] = useState<Parts | null>(() =>
-    valid ? diffParts(target, Date.now()) : null,
-  );
+  const [parts, setParts] = useState<Parts | null>(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     if (!valid) return;
+    setMounted(true);
     const tick = () => setParts(diffParts(target, Date.now()));
     tick();
     const id = window.setInterval(tick, reduced ? 60_000 : 1000);
     return () => window.clearInterval(id);
   }, [target, valid, reduced]);
 
-  const past = valid && parts === null;
+  const past = valid && mounted && parts === null;
 
-  const units: Array<{ label: string; value: number }> = parts
-    ? [
-        { label: "Days", value: parts.days },
-        { label: "Hours", value: parts.hours },
-        { label: "Minutes", value: parts.minutes },
-        { label: "Seconds", value: parts.seconds },
-      ]
-    : [];
+  const units: Array<{ label: string; value: number | null }> = [
+    { label: "Days", value: parts ? parts.days : null },
+    { label: "Hours", value: parts ? parts.hours : null },
+    { label: "Minutes", value: parts ? parts.minutes : null },
+    { label: "Seconds", value: parts ? parts.seconds : null },
+  ];
+
 
   /* Coarse, screen-reader-only summary: changes at most once a minute. */
   const srSummary = parts
@@ -107,7 +106,7 @@ export function CountdownSection({ data }: { data: CountdownData }) {
                       reduced ? "" : "transition-transform duration-500"
                     }`}
                   >
-                    {String(u.value).padStart(2, "0")}
+                    {u.value === null ? "--" : String(u.value).padStart(2, "0")}
                   </span>
                   <span className="mt-2 block font-heading text-[0.58rem] uppercase tracking-[0.18em] text-ink/60">
                     {u.label}
