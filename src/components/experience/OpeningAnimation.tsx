@@ -4,6 +4,7 @@ import type { OpeningData, PreviewData } from "@/data/types";
 import { useGuest } from "@/lib/guest";
 import { CurtainPanel, Tieback, Valance } from "./Curtains";
 import { InvitationPreviewCard } from "./InvitationPreviewCard";
+import { ConfettiBurst } from "./ConfettiBurst";
 
 /**
  * PRD §Opening Animation — theater curtains part on a tap/keypress and reveal the
@@ -31,9 +32,9 @@ export function OpeningAnimation({
 
   useEffect(() => {
     if (phase !== "parting") return;
-    // content fades in 200ms after the curtains begin moving — sequential reveal
-    const a = setTimeout(() => setCardIn(true), 200);
-    const b = setTimeout(() => setPhase("gate"), 1400);
+    // content fades in 400ms after the curtains begin moving — sequential reveal
+    const a = setTimeout(() => setCardIn(true), 400);
+    const b = setTimeout(() => setPhase("gate"), 2600);
     return () => {
       clearTimeout(a);
       clearTimeout(b);
@@ -89,8 +90,17 @@ export function OpeningAnimation({
 
   return (
     <div className="absolute inset-0 z-50 overflow-hidden">
-      {/* revealed backdrop */}
-      <div className="absolute inset-0 bg-background" />
+      {/* revealed backdrop with soft studio vignette paper depth */}
+      <div className="absolute inset-0 bg-background">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-65"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 80% at 50% 48%, transparent 30%, oklch(0.92 0.028 75 / 0.4) 75%, oklch(0.87 0.04 65 / 0.55) 100%)",
+          }}
+        />
+      </div>
 
       <InvitationPreviewCard
         data={preview}
@@ -103,12 +113,15 @@ export function OpeningAnimation({
       <Panel side="left" parted={parted} />
       <Panel side="right" parted={parted} />
 
+      {/* confetti particle burst on curtain parting */}
+      <ConfettiBurst active={parted} />
+
       {/* valance swag across the top, lifts gently with the panels */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 z-30 h-24"
         style={{
           transform: parted ? "translateY(-105%)" : "translateY(0)",
-          transition: "transform 1.2s cubic-bezier(0.45, 0.05, 0.2, 1)",
+          transition: "transform 2.4s cubic-bezier(0.35, 0, 0.15, 1)",
           filter: "drop-shadow(0 18px 26px oklch(0.2 0.06 30 / 0.5))",
         }}
       >
@@ -163,7 +176,7 @@ function Panel({ side, parted }: { side: "left" | "right"; parted: boolean }) {
         transform: parted
           ? `translateX(${side === "left" ? "-118%" : "118%"}) rotate(${sway}deg) skewY(${-sway / 2}deg)`
           : "translateX(0) rotate(0deg)",
-        transition: "transform 1.25s cubic-bezier(0.42, 0.02, 0.25, 1)",
+        transition: "transform 2.5s cubic-bezier(0.35, 0, 0.15, 1)",
         filter: `drop-shadow(${side === "left" ? "14px" : "-14px"} 0 34px oklch(0.2 0.06 30 / 0.55))`,
       }}
     >

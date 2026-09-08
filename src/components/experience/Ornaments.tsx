@@ -82,8 +82,10 @@ export function FloralCorner({ className = "" }: { className?: string }) {
 export function Divider({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 160 12" className={className} fill="none" aria-hidden="true">
-      <path d="M2 6h56M102 6h56" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-      <path d="M80 1.5 84.5 6 80 10.5 75.5 6Z" stroke="currentColor" strokeWidth="1.3" />
+      <path d="M 6 6 H 54 M 106 6 H 154" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <circle cx="72" cy="6" r="1.8" fill="currentColor" />
+      <circle cx="80" cy="6" r="2.5" fill="currentColor" />
+      <circle cx="88" cy="6" r="1.8" fill="currentColor" />
     </svg>
   );
 }
@@ -290,4 +292,230 @@ export function WeddingCar({ className = "" }: { className?: string }) {
     </svg>
   );
 }
+
+/** Hand-drawn stroke linework top ribbon bow & feather-detailed doves header with solid accent knot. */
+export function DovesRibbonHeader({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 360 120" className={className} fill="none" aria-hidden="true">
+      {/* Outer & Inner Arching Ribbon Banner (Stroke linework with fold shading) */}
+      <path
+        d="M 30 78 C 80 25, 140 18, 180 32 C 220 18, 280 25, 330 78"
+        stroke="currentColor"
+        strokeWidth="3.2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M 38 84 C 85 34, 142 28, 180 40 C 218 28, 275 34, 322 84"
+        stroke="currentColor"
+        strokeWidth="2.0"
+        strokeLinecap="round"
+      />
+      {/* Fabric Fold Shading Hatching */}
+      <path
+        d="M 68 62 L 62 74 M 88 52 L 82 64 M 108 44 L 102 56 M 128 38 L 122 50 M 232 38 L 238 50 M 252 44 L 258 56 M 272 52 L 278 64 M 292 62 L 298 74"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      {/* Fluttering Ribbon Tails */}
+      <path
+        d="M 30 78 L 12 90 L 32 98 L 22 110 M 330 78 L 348 90 L 328 98 L 338 110"
+        stroke="currentColor"
+        strokeWidth="2.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+
+      {/* Central Ribbon Bow Loops (Stroke Linework) */}
+      <path
+        d="M 180 40 C 154 10, 122 28, 144 48 C 160 62, 172 48, 180 44 C 188 48, 200 62, 216 48 C 238 28, 206 10, 180 40 Z"
+        stroke="currentColor"
+        strokeWidth="3.0"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M 160 52 C 148 72, 140 92, 130 104 M 200 52 C 212 72, 220 92, 230 104"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+      />
+
+      {/* SOLID FOCAL ACCENT: Central Bow Wax-Seal Knot in Muted Gold (#B8935A) */}
+      <circle cx="180" cy="44" r="7" fill="#B8935A" />
+
+      {/* Left Feathered Flying Dove (Stroke Linework) */}
+      <g transform="translate(4, 4)">
+        <path
+          d="M 10 44 C 26 28, 48 26, 64 38 C 74 46, 82 56, 76 66 C 64 68, 48 62, 36 52 C 48 68, 66 70, 84 64"
+          stroke="currentColor"
+          strokeWidth="2.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M 36 38 C 48 18, 66 10, 84 14 M 28 32 C 38 16, 56 8, 74 12 M 46 26 C 56 12, 70 6, 84 10"
+          stroke="currentColor"
+          strokeWidth="2.0"
+          strokeLinecap="round"
+        />
+        <path d="M 10 44 C 0 46, -8 54, -4 68 M 12 47 C 0 55, -4 67, 4 75 M 15 52 C 6 62, 4 74, 14 80" stroke="currentColor" strokeWidth="2.0" strokeLinecap="round" />
+        <circle cx="76" cy="34" r="2.2" stroke="currentColor" strokeWidth="1.4" />
+        <path d="M 80 40 Q 72 58 64 78" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
+      </g>
+
+      {/* Right Feathered Flying Dove (Stroke Linework) */}
+      <g transform="translate(356, 4) scale(-1, 1)">
+        <path
+          d="M 10 44 C 26 28, 48 26, 64 38 C 74 46, 82 56, 76 66 C 64 68, 48 62, 36 52 C 48 68, 66 70, 84 64"
+          stroke="currentColor"
+          strokeWidth="2.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M 36 38 C 48 18, 66 10, 84 14 M 28 32 C 38 16, 56 8, 74 12 M 46 26 C 56 12, 70 6, 84 10"
+          stroke="currentColor"
+          strokeWidth="2.0"
+          strokeLinecap="round"
+        />
+        <path d="M 10 44 C 0 46, -8 54, -4 68 M 12 47 C 0 55, -4 67, 4 75 M 15 52 C 6 62, 4 74, 14 80" stroke="currentColor" strokeWidth="2.0" strokeLinecap="round" />
+        <circle cx="76" cy="34" r="2.2" stroke="currentColor" strokeWidth="1.4" />
+        <path d="M 80 40 Q 72 58 64 78" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
+      </g>
+    </svg>
+  );
+}
+
+/** Classical fluted column with ornate capital, molded base & combed, rhythmic rising helical vine linework + solid accent berries. */
+export function IvyColumn({ className = "", flip = false }: { className?: string; flip?: boolean }) {
+  return (
+    <svg
+      viewBox="-8 0 116 360"
+      className={className}
+      fill="none"
+      aria-hidden="true"
+      style={flip ? { transform: "scaleX(-1)" } : undefined}
+    >
+      {/* 1. COLUMN ARCHITECTURE (Crisp stroke linework) */}
+      {/* Abacus Top Slab */}
+      <path d="M 6 42 Q 50 38 94 42 M 6 26 Q 50 22 94 26 M 6 26 L 6 42 M 94 26 L 94 42 M 12 34 Q 50 30 88 34" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" />
+
+      {/* Ionic Capital Volutes (Scrolled Spirals) */}
+      <path d="M 22 42 C 6 42 2 24 16 12 C 32 0 42 16 34 26 C 28 34 18 28 20 20 C 22 14 28 16 26 20 M 78 42 C 94 42 98 24 84 12 C 68 0 58 16 66 26 C 72 34 82 28 80 20 C 78 14 72 16 74 20" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
+      <path d="M 20 42 C 35 48 65 48 80 42 M 24 54 C 40 58 60 58 76 54" stroke="currentColor" strokeWidth="2.6" />
+
+      {/* Column Shaft Contours & Flute Linework */}
+      <path d="M 24 54 L 22 312 M 76 54 L 78 312" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" />
+      <path d="M 35 54 Q 34 185 35 312 M 45 54 Q 44 185 45 312 M 55 54 Q 56 185 55 312 M 65 54 Q 66 185 65 312" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+
+      {/* Plinth Base Moldings */}
+      <path d="M 16 312 C 40 306 60 306 84 312 M 12 326 C 40 320 60 320 88 326 M 16 312 L 12 326 M 84 312 L 88 326 M 8 326 C 40 320 60 320 92 326 M 4 348 C 50 354 50 354 96 348 M 8 326 L 4 348 M 92 326 L 96 348" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+
+      {/* 2. COMBED RHYTHMIC HELICAL VINE OVERLAY (Continuous rising motion from base to capital) */}
+      {/* Primary Combed Helical Stem (Smooth 70px rhythmic spiral) */}
+      <path
+        d="M 16 338 C 38 344, 76 322, 78 295 C 80 268, 20 248, 22 225 C 24 202, 78 180, 76 155 C 74 130, 22 110, 24 85 C 26 60, 74 44, 66 22"
+        stroke="currentColor"
+        strokeWidth="2.8"
+        strokeLinecap="round"
+      />
+
+      {/* Secondary Parallel Accent Vine */}
+      <path
+        d="M 28 330 C 46 336, 70 318, 72 298 C 74 275, 28 255, 30 232 C 32 208, 72 188, 70 162 C 68 138, 28 118, 30 92 C 32 68, 68 50, 60 30"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+
+      {/* Rhythmic Tendril Swash Loops at Spirals */}
+      <path
+        d="M 78 295 C 88 288, 92 278, 84 272 M 22 225 C 12 218, 8 208, 16 202 M 76 155 C 86 148, 90 138, 82 132 M 24 85 C 14 78, 10 68, 18 62"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+
+      {/* Distinct Ivy Leaves along Spiral Nodes */}
+      {/* Node 1 (y=295, Right): Crisp Ivy Leaf Pair */}
+      <path d="M 78 295 C 92 288, 96 308, 84 314 C 74 318, 70 302, 78 295 Z M 72 290 C 82 276, 96 284, 88 296 Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+      <path d="M 78 295 L 85 307 M 72 290 L 82 286" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+
+      {/* Node 2 (y=225, Left): Crisp Ivy Leaf Pair */}
+      <path d="M 22 225 C 8 218, 4 238, 16 244 C 26 248, 30 232, 22 225 Z M 28 220 C 18 206, 4 214, 12 226 Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+      <path d="M 22 225 L 15 237 M 28 220 L 18 216" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+
+      {/* Node 3 (y=155, Right): Crisp Ivy Leaf Pair */}
+      <path d="M 76 155 C 90 148, 94 168, 82 174 C 72 178, 68 162, 76 155 Z M 70 150 C 80 136, 94 144, 86 156 Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+      <path d="M 76 155 L 83 167 M 70 150 L 80 146" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+
+      {/* Node 4 (y=85, Left): Crisp Ivy Leaf Pair */}
+      <path d="M 24 85 C 10 78, 6 98, 18 104 C 28 108, 32 92, 24 85 Z M 30 80 C 20 66, 6 74, 14 86 Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+      <path d="M 24 85 L 17 97 M 30 80 L 20 76" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+
+      {/* Node 5 (y=24, Top Crown): Draping Capital Flower & Leaf Pair */}
+      <path d="M 66 22 C 54 10, 74 2, 80 14 C 86 2, 102 12, 92 24 C 100 34, 82 44, 76 32 C 70 42, 54 32, 62 22 Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+
+      {/* SOLID ACCENT BERRY DOTS (Rhythmically placed at spiral nodes) */}
+      <circle cx="86" cy="282" r="3.2" fill="currentColor" />
+      <circle cx="92" cy="290" r="2.6" fill="currentColor" />
+      <circle cx="14" cy="212" r="3.2" fill="currentColor" />
+      <circle cx="8" cy="220" r="2.6" fill="currentColor" />
+      <circle cx="84" cy="142" r="3.2" fill="currentColor" />
+      <circle cx="90" cy="150" r="2.6" fill="currentColor" />
+      <circle cx="16" cy="72" r="3.2" fill="currentColor" />
+      <circle cx="10" cy="80" r="2.6" fill="currentColor" />
+    </svg>
+  );
+}
+
+/** 3-Tier Fountain centerpiece with ornate botanical floral topper crown & gold wax seal accent (#C89B48). */
+export function FountainUrn({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 180 140" className={className} fill="none" aria-hidden="true">
+      {/* 1. ORNATE BOTANICAL FLORAL TOPPER CROWN (Stroke Linework + Gold Accent) */}
+      {/* Central Rising Crown Petals */}
+      <path
+        d="M 90 4 C 84 -2, 70 8, 80 20 C 68 12, 58 26, 74 32 C 86 36, 90 28, 90 28 C 90 28, 94 36, 106 32 C 122 26, 112 12, 100 20 C 110 8, 96 -2, 90 4 Z"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinejoin="round"
+      />
+      {/* Inner Petal Veins */}
+      <path d="M 90 4 L 90 28 M 80 20 L 90 28 M 100 20 L 90 28" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+
+      {/* SOLID FOCAL ACCENT 1: Gold Crown Jewel Dot (#C89B48) */}
+      <circle cx="90" cy="18" r="3.5" fill="#C89B48" />
+
+      {/* 2. TOP FOUNTAIN BOWL & RIM (Crisp stroke linework) */}
+      <path d="M 60 36 Q 90 26 120 36 L 114 52 Q 90 58 66 52 Z" stroke="currentColor" strokeWidth="2.8" strokeLinejoin="round" />
+      <path d="M 72 42 V 50 M 90 38 V 52 M 108 42 V 50" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+
+      {/* 3. TIER 2 MIDDLE WATER BASIN & FLUTES */}
+      <path d="M 40 64 Q 90 50 140 64 L 128 86 Q 90 96 52 86 Z" stroke="currentColor" strokeWidth="3.0" strokeLinejoin="round" />
+      <path d="M 70 52 V 64 M 110 52 V 64" stroke="currentColor" strokeWidth="2.2" />
+      <path d="M 64 70 Q 90 76 116 70" stroke="currentColor" strokeWidth="1.6" />
+
+      {/* Cascading Water Drops & Streams */}
+      <path
+        d="M 50 64 C 40 80, 44 96, 50 114 M 130 64 C 140 80, 136 96, 130 114 M 90 52 V 86 M 68 74 C 62 86, 64 98, 68 110 M 112 74 C 118 86, 116 98, 112 110"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+      />
+      {/* Falling Water Droplets */}
+      <circle cx="45" cy="88" r="1.8" fill="currentColor" />
+      <circle cx="135" cy="88" r="1.8" fill="currentColor" />
+
+      {/* SOLID FOCAL ACCENT 2: Central Wax-Seal Medallion on Fountain Basin in Metallic Gold (#C89B48) */}
+      <circle cx="90" cy="75" r="5.5" fill="#C89B48" />
+
+      {/* 4. BOTTOM LARGE PEDESTAL BASE & PLINTH */}
+      <path d="M 24 104 Q 90 90 156 104 L 142 124 Q 90 134 38 124 Z" stroke="currentColor" strokeWidth="3.2" strokeLinejoin="round" />
+      <path d="M 12 124 Q 90 114 168 124 L 164 134 Q 90 144 16 134 Z" stroke="currentColor" strokeWidth="3.0" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+
 

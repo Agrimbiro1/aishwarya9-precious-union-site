@@ -1,7 +1,7 @@
 import { useEffect, useState, type ReactNode } from "react";
-import desktopBg from "@/assets/desktop-floral-bg.png.asset.json";
+import desktopBg from "@/assets/desktop-bg.png";
 
-const FRAME_W = 430;
+const FRAME_W = 470;
 const FRAME_H = 932;
 /* Thin flagship bezel: ~3.3% of device width. */
 const BEZEL = 14;
@@ -52,14 +52,21 @@ export function PhoneStage({ children }: { children: ReactNode }) {
 
   return (
     <div
-      className="fixed inset-0 grid place-items-center overflow-hidden bg-background"
+      className="fixed inset-0 grid place-items-center overflow-hidden bg-[#faf6f0]"
       style={{
-        backgroundImage: `url(${desktopBg.url})`,
+        backgroundImage: `url(${desktopBg})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center bottom",
+        backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="relative shrink-0" style={{ width: FRAME_W * s, height: FRAME_H * s }}>
+      {/* Background decoration */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        {/* Soft Organic Blob Top-Left */}
+        <div className="absolute -left-20 -top-20 h-[450px] w-[450px] rounded-full bg-[#f2e7db]/70 blur-3xl" />
+      </div>
+
+      <div className="relative z-10 shrink-0" style={{ width: FRAME_W * s, height: FRAME_H * s }}>
         {/* soft floating shadow */}
         <div
           aria-hidden="true"

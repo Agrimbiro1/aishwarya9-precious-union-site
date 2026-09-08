@@ -4,7 +4,6 @@ import { GuestProvider } from "@/lib/guest";
 import { PhoneStage } from "@/components/experience/PhoneStage";
 import { InvitationExperience } from "@/components/experience/InvitationExperience";
 import { OpeningAnimation } from "@/components/experience/OpeningAnimation";
-import { InvitationSection } from "@/components/experience/InvitationSection";
 import { CoupleSection } from "@/components/experience/CoupleSection";
 import { CountdownSection } from "@/components/experience/CountdownSection";
 import { EventsSection } from "@/components/experience/EventsSection";
@@ -49,7 +48,6 @@ function Page() {
       <PhoneStage>
         <div className="relative h-full w-full overflow-hidden">
         <InvitationExperience locked={!unlocked}>
-          <InvitationSection data={data.invitation} />
           <CoupleSection data={data.couple} />
           <CountdownSection data={data.countdown} />
           <EventsSection events={data.events} config={data.eventsConfig} />
@@ -60,8 +58,6 @@ function Page() {
           <TravelSection options={data.travel} config={data.travelConfig} />
           <ContactSection people={data.contacts} config={data.contactConfig} />
           <FooterSection data={data.footer} />
-
-
         </InvitationExperience>
         <OpeningAnimation
           data={data.opening}

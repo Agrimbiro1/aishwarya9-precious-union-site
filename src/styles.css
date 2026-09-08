@@ -22,6 +22,7 @@
   /* Wedding invitation design system (PRD §5) — one locked palette + type system */
   --color-accent-primary: var(--accent-primary);
   --color-accent-secondary: var(--accent-secondary);
+  --color-accent-gold: var(--accent-gold);
   --color-ink: var(--ink);
   --color-surface: var(--surface);
   --color-success: var(--success);
@@ -87,6 +88,7 @@
   --foreground: oklch(0.26 0.045 40); /* warm brown ink */
   --accent-primary: oklch(0.39 0.147 26.5); /* deep maroon #7A1E1E */
   --accent-secondary: oklch(0.694 0.069 15.4); /* muted blush #C98A8A */
+  --accent-gold: #C89B48; /* warm, vibrant metallic foil gold #C89B48 */
   --ink: oklch(0.26 0.045 40); /* #2B1B14 */
   --surface: oklch(0.99 0.008 84); /* off-white #FFFDF9 */
   --success: oklch(0.62 0.06 145);
@@ -169,3 +171,5 @@
     color: var(--color-foreground);
   }
 }
+
+

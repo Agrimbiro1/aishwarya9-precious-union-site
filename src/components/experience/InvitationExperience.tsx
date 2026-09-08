@@ -25,7 +25,17 @@ export function InvitationExperience({
         backgroundAttachment: "local",
       }}
     >
-      <div className="relative bg-background/45">{children}</div>
+      {/* Soft Studio Vignette Gradient Overlay (Edges warmer/darker, center brighter for paper depth) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 z-0 opacity-60"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 80% at 50% 45%, transparent 35%, oklch(0.93 0.025 78 / 0.35) 75%, oklch(0.88 0.038 68 / 0.5) 100%)",
+        }}
+      />
+
+      <div className="relative z-10 bg-background/45">{children}</div>
     </div>
   );
 }
@@ -42,7 +52,7 @@ export function Section({
   className?: string;
 }) {
   return (
-    <section id={id} className={`w-full px-6 py-14 ${className}`}>
+    <section id={id} className={`w-full px-6 py-16 sm:py-20 ${className}`}>
       {children}
     </section>
   );

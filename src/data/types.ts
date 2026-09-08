@@ -29,6 +29,7 @@ export type PreviewData = {
   eyebrowLabel: string;
   coupleNames: string[];
   dateLabel: string;
+  venueLabel?: string;
   tagline?: string | null;
   ctaLabel: string;
   ctaSubtext: string;
