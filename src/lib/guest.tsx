@@ -37,6 +37,7 @@ type GuestState = {
   invitedEvents: string[] | null;
   maxGuestCount: number;
   personalize: (template: string, fallbacks?: Record<string, string>) => string;
+  greeting: string;
 };
 
 const GuestContext = createContext<GuestState | null>(null);
@@ -74,15 +75,18 @@ export function GuestProvider({ children }: { children: ReactNode }) {
 
   const value = useMemo<GuestState>(() => {
     const name = guest?.displayName?.trim() || "";
+    const isPersonalized = name.length > 0;
+    const greeting = isPersonalized ? personalize("A special invite for {{guestName}}", guest) : "";
     return {
       guest,
       status,
-      isPersonalized: name.length > 0,
+      isPersonalized,
       name,
       invitedEvents:
         guest?.invitedEvents && guest.invitedEvents.length > 0 ? guest.invitedEvents : null,
       maxGuestCount: Math.max(1, guest?.allowedGuestCount ?? 1),
       personalize: (template, fallbacks) => personalize(template, guest, fallbacks),
+      greeting,
     };
   }, [guest, status]);
 
@@ -101,6 +105,7 @@ export function useGuest(): GuestState {
       invitedEvents: null,
       maxGuestCount: 1,
       personalize: (template) => personalize(template, null),
+      greeting: "",
     };
   }
   return ctx;

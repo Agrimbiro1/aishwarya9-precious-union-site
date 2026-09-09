@@ -52,7 +52,9 @@ export type CoupleData = {
   coupleNames: string[];
   tagline?: string | null;
   pets: Pet[];
+  showPetIllustration?: boolean;
   eventDateShort: string;
+  venueLabel?: string | null;
 };
 
 export type CountdownData = {

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Section } from "./InvitationExperience";
 import { Divider, PersonSilhouette } from "./Ornaments";
 import type { FamilyConfig, FamilyMember } from "@/data/types";
+import { useGuest } from "@/lib/guest";
 
 /**
  * Family — grouped by side so a 40-person list stays readable: each group shows
@@ -15,7 +16,9 @@ export function FamilySection({
   members: FamilyMember[];
   config: FamilyConfig;
 }) {
+  const { personalize } = useGuest();
   const all = (members ?? []).filter((m) => m?.name);
+  const supportingText = config.supportingLine ? personalize(config.supportingLine) || config.supportingLine : null;
   const groups = [
     { key: "bride", label: config.brideSideLabel, list: all.filter((m) => m.side === "bride") },
     { key: "groom", label: config.groomSideLabel, list: all.filter((m) => m.side === "groom") },
@@ -32,9 +35,9 @@ export function FamilySection({
       <h2 className="text-center font-script text-[2.3rem] text-accent-primary">
         {config.sectionLabel}
       </h2>
-      {config.supportingLine ? (
+      {supportingText ? (
         <p className="mt-2 text-center font-body text-label italic text-ink/70">
-          {config.supportingLine}
+          {supportingText}
         </p>
       ) : null}
       <Divider className="mx-auto mt-4 h-3 w-32 text-accent-secondary" />

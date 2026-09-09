@@ -37,9 +37,11 @@ export const sampleWedding: WeddingData = {
   couple: {
     portraitImageUrl: null,
     coupleNames: ["Kavya", "Rohan"],
-    tagline: "Two cities, one long train ride, and a very persistent dog.",
-    pets: [{ name: "Laddoo", type: "dog" }],
+    tagline: "Two cities, one long train ride, and a whole lot of marigolds.",
+    pets: [],
+    showPetIllustration: false,
     eventDateShort: "Friday, December 4, 2026",
+    venueLabel: "Taj Palace, Jaipur",
   },
   countdown: {
     targetDateTime: "2026-12-04T19:30:00+05:30",
@@ -147,7 +149,6 @@ export const sampleWedding: WeddingData = {
     { id: "g10", name: "Divya Menon", relation: "Cousin of the groom", side: "groom" },
     { id: "g11", name: "Arjun Nair", relation: "Groomsman", side: "groom" },
     { id: "g12", name: "Karthik Rao", relation: "Groomsman", side: "groom" },
-    { id: "x1", name: "Laddoo", relation: "Chief tail-wagger", side: "both" },
   ],
   familyConfig: {
     sectionLabel: "Our Families",

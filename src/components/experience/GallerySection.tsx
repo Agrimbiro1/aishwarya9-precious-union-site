@@ -2,6 +2,8 @@ import { Section } from "./InvitationExperience";
 import { Divider, PhotoPlaceholder } from "./Ornaments";
 import type { GalleryConfig, GalleryItem } from "@/data/types";
 
+import { useGuest } from "@/lib/guest";
+
 /**
  * Gallery — a scrapbook strip of photographs. When the couple hasn't uploaded
  * anything yet we draw an illustrated frame in the same line style, never a
@@ -14,7 +16,10 @@ export function GallerySection({
   items: GalleryItem[];
   config: GalleryConfig;
 }) {
+  const { personalize } = useGuest();
   const photos = (items ?? []).filter((i) => i?.imageUrl);
+  const supportingText = config.supportingLine ? personalize(config.supportingLine) || config.supportingLine : null;
+  const emptyText = config.emptyStateLine ? personalize(config.emptyStateLine) || config.emptyStateLine : null;
 
   return (
     <Section
@@ -24,9 +29,9 @@ export function GallerySection({
       <h2 className="text-center font-script text-[2.3rem] text-accent-primary">
         {config.sectionLabel}
       </h2>
-      {config.supportingLine ? (
+      {supportingText ? (
         <p className="mt-2 text-center font-body text-label italic text-ink/70">
-          {config.supportingLine}
+          {supportingText}
         </p>
       ) : null}
       <Divider className="mx-auto mt-4 h-3 w-32 text-accent-secondary" />
@@ -35,7 +40,7 @@ export function GallerySection({
         <div className="mt-8 rounded-[1.6rem] border border-dashed border-accent-secondary/60 bg-surface/60 px-6 py-9 text-center">
           <PhotoPlaceholder className="mx-auto h-32 w-24 text-accent-primary/55" />
           <p className="mt-5 font-body text-body italic leading-relaxed text-ink/75">
-            {config.emptyStateLine}
+            {emptyText}
           </p>
         </div>
       ) : (

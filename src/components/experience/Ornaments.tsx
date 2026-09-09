@@ -79,13 +79,119 @@ export function FloralCorner({ className = "" }: { className?: string }) {
   );
 }
 
+/** Illustrated divider rule featuring 3 hand-drawn flower buds / lotus blossom centerpiece motif. */
 export function Divider({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 160 12" className={className} fill="none" aria-hidden="true">
-      <path d="M 6 6 H 54 M 106 6 H 154" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="72" cy="6" r="1.8" fill="currentColor" />
-      <circle cx="80" cy="6" r="2.5" fill="currentColor" />
-      <circle cx="88" cy="6" r="1.8" fill="currentColor" />
+    <svg viewBox="0 0 180 18" className={className} fill="none" aria-hidden="true">
+      {/* Left Hairline Rule */}
+      <path d="M 6 9 H 62" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+      <circle cx="62" cy="9" r="1.4" fill="currentColor" />
+
+      {/* Centerpiece: 3 Illustrated Flower Buds / Lotus Blossom Motif */}
+      {/* Left Outer Petal Bud */}
+      <path
+        d="M 80 4 C 74 6, 75 13, 81 15 C 85 13, 85 7, 80 4 Z"
+        fill="currentColor"
+        opacity="0.9"
+      />
+
+      {/* Central Taller Petal Bud */}
+      <path
+        d="M 90 1 C 84 4, 84 12, 90 15 C 96 12, 96 4, 90 1 Z"
+        fill="currentColor"
+      />
+
+      {/* Right Outer Petal Bud */}
+      <path
+        d="M 100 4 C 106 6, 105 13, 99 15 C 95 13, 95 7, 100 4 Z"
+        fill="currentColor"
+        opacity="0.9"
+      />
+
+      {/* Base Calyx Arc & Accent Dot */}
+      <path d="M 76 15 Q 90 18 104 15" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+      <circle cx="90" cy="16.5" r="1.2" fill="currentColor" />
+
+      {/* Right Hairline Rule */}
+      <circle cx="118" cy="9" r="1.4" fill="currentColor" />
+      <path d="M 118 9 H 174" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+/** Delicate metallic gold calligraphy flourish swash wrapping around ampersands (&). */
+export function GoldAmpersandFlourishSVG({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 64 36"
+      className={className}
+      fill="none"
+      aria-hidden="true"
+    >
+      {/* Left Delicate Gold Swash Wing */}
+      <path
+        d="M 4 18 C 12 6, 26 8, 28 16 C 30 22, 24 28, 16 26 C 10 24, 12 16, 22 14"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
+      {/* Right Delicate Gold Swash Wing */}
+      <path
+        d="M 60 18 C 52 6, 38 8, 36 16 C 34 22, 40 28, 48 26 C 54 24, 52 16, 42 14"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
+      {/* Top & Bottom Gold Filigree Accents */}
+      <path d="M 24 4 C 28 2, 36 2, 40 4" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+      <path d="M 24 32 C 28 34, 36 34, 40 32" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+      <circle cx="32" cy="3" r="1.4" fill="currentColor" />
+      <circle cx="32" cy="33" r="1.4" fill="currentColor" />
+    </svg>
+  );
+}
+
+/** Hand-drawn botanical twin-branch flourish pair with gold diamond & pearl accents for section closing ending. */
+export function SectionClosingFlourishSVG({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 160 28"
+      className={className}
+      fill="none"
+      aria-hidden="true"
+    >
+      {/* Central Metallic Foil Gold Diamond Motif */}
+      <polygon points="80,7 85,12 80,17 75,12" fill="#C89B48" />
+
+      {/* Left Outward Curving Botanical Vine Branch */}
+      <path
+        d="M 71 12 C 55 11, 38 16, 20 12 C 14 10, 8 13, 4 17"
+        stroke="#4E5E35"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
+      {/* Left Branch Leaves & Gold Pearl Tip */}
+      <g stroke="#4E5E35" strokeWidth="1" fill="none">
+        <path d="M 54 12 C 48 5, 38 7, 44 14" />
+        <path d="M 36 14 C 30 7, 22 9, 28 16" />
+        <path d="M 22 13 C 16 6, 8 8, 14 15" />
+      </g>
+      <circle cx="4" cy="17" r="1.4" fill="#C89B48" />
+
+      {/* Right Outward Curving Botanical Vine Branch */}
+      <path
+        d="M 89 12 C 105 11, 122 16, 140 12 C 146 10, 152 13, 156 17"
+        stroke="#4E5E35"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
+      {/* Right Branch Leaves & Gold Pearl Tip */}
+      <g stroke="#4E5E35" strokeWidth="1" fill="none">
+        <path d="M 106 12 C 112 5, 122 7, 116 14" />
+        <path d="M 124 14 C 130 7, 138 9, 132 16" />
+        <path d="M 138 13 C 144 6, 152 8, 146 15" />
+      </g>
+      <circle cx="156" cy="17" r="1.4" fill="#C89B48" />
     </svg>
   );
 }
