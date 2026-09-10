@@ -51,6 +51,7 @@ export type CoupleData = {
   portraitImageUrl?: string | null;
   coupleNames: string[];
   tagline?: string | null;
+  quoteLine?: string | null;
   pets: Pet[];
   showPetIllustration?: boolean;
   eventDateShort: string;

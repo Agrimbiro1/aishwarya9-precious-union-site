@@ -38,6 +38,7 @@ export const sampleWedding: WeddingData = {
     portraitImageUrl: null,
     coupleNames: ["Kavya", "Rohan"],
     tagline: "Two cities, one long train ride, and a whole lot of marigolds.",
+    quoteLine: "two hearts, one journey",
     pets: [],
     showPetIllustration: false,
     eventDateShort: "Friday, December 4, 2026",

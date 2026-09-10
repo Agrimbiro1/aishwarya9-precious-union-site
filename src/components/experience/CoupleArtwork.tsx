@@ -320,3 +320,189 @@ export function IllustratedPetSVG({ className = "", ...props }: SVGProps<SVGSVGE
     </svg>
   );
 }
+
+/**
+ * HandDrawnWobblyHeartSVG — Single-stroke hand-drawn wobbly heart outline.
+ * Freehand pen ink aesthetic with subtle line weight waver & line-end overshoot.
+ */
+export function HandDrawnWobblyHeartSVG({ className = "", ...props }: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      fill="none"
+      aria-hidden="true"
+      className={className}
+      {...props}
+    >
+      {/* Hand-sketched wobbly heart single stroke outline */}
+      <path
+        d="M 15.6 12.2 C 14.2 6.5, 4.8 6.0, 3.5 12.2 C 2.1 18.8, 11.0 24.2, 15.4 27.6 C 16.0 28.0, 16.4 27.8, 16.8 27.2 C 21.0 23.0, 29.0 18.0, 27.8 11.8 C 26.5 5.6, 17.5 6.2, 16.0 12.2 M 16.0 12.2 C 16.5 10.4, 17.0 8.6, 17.6 7.2"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+/**
+ * HandDrawnOliveBranchSVG — Botanical hand-sketched olive sprig doodle.
+ * Thin organic stem with 4-5 irregularly-spaced leaf outlines (echoing arch vine style).
+ */
+export function HandDrawnOliveBranchSVG({ className = "", ...props }: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 36 64"
+      fill="none"
+      aria-hidden="true"
+      className={className}
+      {...props}
+    >
+      {/* Organic hand-wavered main stem */}
+      <path
+        d="M 12 60 C 15 48, 13 36, 21 24 C 25 18, 24 10, 26 4 M 26 4 L 27 2"
+        stroke="currentColor"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+      />
+      {/* Leaf 1 (Bottom Left) */}
+      <path
+        d="M 13 48 C 6 45, 3 37, 8 39 C 12 40, 13 45, 13 48 Z"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* Leaf 2 (Mid-Bottom Right) */}
+      <path
+        d="M 16 38 C 23 33, 30 34, 26 40 C 22 43, 18 40, 16 38 Z"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* Leaf 3 (Mid Left) */}
+      <path
+        d="M 18 28 C 10 22, 7 14, 14 17 C 18 19, 18 25, 18 28 Z"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* Leaf 4 (Upper Right) */}
+      <path
+        d="M 22 18 C 30 12, 33 16, 28 21 C 24 24, 22 21, 22 18 Z"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* Leaf 5 (Tip Leaf) */}
+      <path
+        d="M 25 8 C 21 2, 28 1, 30 6 C 31 9, 27 9, 25 8 Z"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+/**
+ * HandDrawnDoveInFlightSVG — 3-4 simple hand-drawn strokes forming a dove silhouette.
+ * Minimalist freehand pen sketch in thin olive ink.
+ */
+export function HandDrawnDoveInFlightSVG({ className = "", ...props }: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 42 32"
+      fill="none"
+      aria-hidden="true"
+      className={className}
+      {...props}
+    >
+      {/* Stroke 1: Body curve, head & beak tip overshoot */}
+      <path
+        d="M 4 20 C 10 23, 20 22, 28 17 C 32 15, 36 12, 38 13 C 39.5 13.5, 41 12.8, 40 12"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
+      {/* Stroke 2: Sweeping upper wing outline */}
+      <path
+        d="M 22 19 C 18 10, 22 3, 30 2 C 34 1.5, 29 7, 24 13"
+        stroke="currentColor"
+        strokeWidth="1.15"
+        strokeLinecap="round"
+      />
+      {/* Stroke 3: Underbelly & lower wing stroke */}
+      <path
+        d="M 20 21 C 15 25, 12 28, 7 26 C 4 24.5, 10 22, 16 20"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+      />
+      {/* Stroke 4: Tail feather flick */}
+      <path
+        d="M 6 21 C 3 24, 1 27, 2 28 M 7 22 C 5 26, 4 29, 5 30"
+        stroke="currentColor"
+        strokeWidth="1.0"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+/**
+ * HandDrawnSprigSVG — Delicate twin/triple leaf sprig in thin olive ink.
+ */
+export function HandDrawnSprigSVG({ className = "", ...props }: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 32 54"
+      fill="none"
+      aria-hidden="true"
+      className={className}
+      {...props}
+    >
+      {/* Stem */}
+      <path
+        d="M 20 50 C 16 38, 18 26, 10 14 C 7 9, 6 4, 5 2"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
+      {/* Leaf 1 (Right) */}
+      <path
+        d="M 18 40 C 25 38, 28 30, 23 32 C 19 33, 18 37, 18 40 Z"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+      />
+      {/* Leaf 2 (Left) */}
+      <path
+        d="M 16 28 C 9 24, 4 28, 9 32 C 13 33, 16 30, 16 28 Z"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+      />
+      {/* Leaf 3 (Right Upper) */}
+      <path
+        d="M 12 18 C 19 14, 20 7, 15 10 C 12 12, 12 16, 12 18 Z"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+      />
+      {/* Tip Leaf */}
+      <path
+        d="M 7 6 C 2 3, 3 -1, 7 1 C 10 2, 9 5, 7 6 Z"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+

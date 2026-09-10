@@ -8,6 +8,10 @@ import {
   CoupleEngravingGroundSVG,
   FlowerGateForegroundOcclusionSVG,
   IllustratedPetSVG,
+  HandDrawnWobblyHeartSVG,
+  HandDrawnOliveBranchSVG,
+  HandDrawnDoveInFlightSVG,
+  HandDrawnSprigSVG,
 } from "./CoupleArtwork";
 import flowerGateImg from "@/assets/flower-gate.png";
 import coupleCutoutImg from "@/assets/couple-cutout.png";
@@ -17,13 +21,19 @@ import coupleCutoutImg from "@/assets/couple-cutout.png";
  *
  * Architecture (Full-Bleed, No Bounded Card):
  * 1. Background: Full-bleed cotton-paper texture (bg-background), edge-to-edge.
- * 2. Scene Composition (4 Layer Depth Stack):
+ * 2. Hand-Drawn Thin Olive Ink Doodles (z-20):
+ *    - Top-left: HandDrawnDoveInFlightSVG (3-4 stroke dove silhouette)
+ *    - Top-right: HandDrawnWobblyHeartSVG (single-stroke wobbly heart outline)
+ *    - Left side gap: HandDrawnOliveBranchSVG (botanical sprig echoing arch vines)
+ *    - Right side gap: HandDrawnSprigSVG (delicate leaf sprig)
+ * 3. Scene Composition (4 Layer Depth Stack):
  *    - Layer 0 (z-5): GoldenHourHaloSVG (Radiant golden-hour sunset backlighting halo inside arch opening).
  *    - Layer 1 (z-10): flower-gate.png (Exact provided floral gate asset with lantern, leaves, butterflies & grassy base).
  *    - Layer 2 (z-20): Isolated Couple Cutout Image (couple-cutout.png) with soft gradient mask.
  *    - Layer 3 (z-25): CoupleEngravingGroundSVG (Engraving line-art hatching shadow, delicate grass, petals, pebbles & ground line).
  *    - Layer 4 (z-30): FlowerGateForegroundOcclusionSVG (Foreground vine tendrils & lantern layering OVER couple outer edges).
- * 3. Typography Stack Below (z-40):
+ * 4. Typography Stack Below (z-40):
+ *    - Editable Cursive Quote Line ("two hearts, one journey").
  *    - Couple Names (font-script display font with Gold Ampersand Flourish).
  *    - Gold Hairline Divider.
  *    - Wedding Date & Venue (tracked serif caps).
@@ -55,6 +65,26 @@ export function CoupleSection({ data }: { data: CoupleData }) {
       id="couple"
       className="relative flex min-h-full flex-col justify-center border-t border-accent-secondary/30 text-center py-12 px-4 overflow-hidden bg-background"
     >
+      {/* 1. TOP-LEFT CORNER DOODLE: Small hand-sketched dove silhouette in flight */}
+      <div className="pointer-events-none absolute top-4 left-4 sm:left-8 md:left-12 lg:left-16 z-20 opacity-80 select-none">
+        <HandDrawnDoveInFlightSVG className="w-8 sm:w-10 h-auto text-[#4E5E35]" />
+      </div>
+
+      {/* 2. TOP-RIGHT CORNER DOODLE: Small wobbly single-stroke heart outline */}
+      <div className="pointer-events-none absolute top-4 right-4 sm:right-8 md:right-12 lg:right-16 z-20 opacity-80 select-none">
+        <HandDrawnWobblyHeartSVG className="w-6 sm:w-7 h-auto text-[#4E5E35]" />
+      </div>
+
+      {/* 3. LEFT SIDE GAP DOODLE: Small botanical olive branch sprig */}
+      <div className="pointer-events-none absolute top-[36%] left-2 sm:left-6 md:left-10 lg:left-16 z-20 opacity-75 select-none -rotate-12">
+        <HandDrawnOliveBranchSVG className="w-7 sm:w-9 h-auto text-[#4E5E35]" />
+      </div>
+
+      {/* 4. RIGHT SIDE GAP DOODLE: Small botanical olive sprig */}
+      <div className="pointer-events-none absolute top-[44%] right-2 sm:right-6 md:right-10 lg:right-16 z-20 opacity-75 select-none rotate-12">
+        <HandDrawnSprigSVG className="w-6 sm:w-8 h-auto text-[#4E5E35]" />
+      </div>
+
       {/* Section Eyebrow Header: Bilateral Metallic Gold Accents framing "You Are Lovingly Invited" */}
       <div className="mb-6 text-center">
         <div className="inline-flex items-center justify-center gap-2.5 sm:gap-3 text-accent-gold">
@@ -124,7 +154,14 @@ export function CoupleSection({ data }: { data: CoupleData }) {
       </div>
 
       {/* TYPOGRAPHY STACK BELOW ARCH SCENE (Generous Vertical Breathing Room) */}
-      <div className="relative z-40 mt-10 px-4 text-center">
+      <div className="relative z-40 mt-7 sm:mt-9 px-4 text-center">
+        {/* Intimate Cursive Quote Line (Whispered in light cursive script as an editable text layer) */}
+        {data.quoteLine !== null && (
+          <p className="font-script text-[1.12rem] sm:text-[1.28rem] text-[#4E5E35]/90 italic font-normal tracking-wide leading-snug mb-3.5 select-none">
+            {data.quoteLine || "two hearts, one journey"}
+          </p>
+        )}
+
         {/* Couple Names in Display Script Font with Calligraphy Metallic Gold Ampersand & Swash Flourish */}
         <h2
           className={`font-script leading-tight text-accent-primary flex items-center justify-center flex-wrap gap-x-2.5 gap-y-0.5 ${isLong ? "text-[2.2rem]" : "text-[2.75rem] sm:text-[3rem]"
