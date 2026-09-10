@@ -119,6 +119,45 @@ export function Divider({ className = "" }: { className?: string }) {
   );
 }
 
+/** Thematic hand-drawn divider rule featuring paired doves & central heart motif centerpiece. */
+export function DoveDivider({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 220 22" className={className} fill="none" aria-hidden="true">
+      {/* Left Hairline Rule */}
+      <path d="M 6 11 H 62" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+      <circle cx="62" cy="11" r="1.3" fill="currentColor" />
+
+      <g transform="translate(10, 0)">
+        {/* Left Dove Silhouette (Facing Right) */}
+        <path
+          d="M 66 14 C 68 8, 73 5, 78 8 C 81 6, 84 8, 87 10 C 84 12, 79 14, 74 13 Z"
+          fill="currentColor"
+        />
+        {/* Left Dove Wing */}
+        <path d="M 73 8 C 71 3, 77 1, 79 6 Z" fill="currentColor" opacity="0.85" />
+
+        {/* Central Hand-Drawn Heart Motif */}
+        <path
+          d="M 100 16 C 96 11, 92 6, 97 3 C 100 1, 100 5, 100 5 C 100 5, 100 1, 103 3 C 108 6, 104 11, 100 16 Z"
+          fill="currentColor"
+        />
+
+        {/* Right Dove Silhouette (Facing Left) */}
+        <path
+          d="M 134 14 C 132 8, 127 5, 122 8 C 119 6, 116 8, 113 10 C 116 12, 121 14, 126 13 Z"
+          fill="currentColor"
+        />
+        {/* Right Dove Wing */}
+        <path d="M 127 8 C 129 3, 123 1, 121 6 Z" fill="currentColor" opacity="0.85" />
+      </g>
+
+      {/* Right Hairline Rule */}
+      <circle cx="158" cy="11" r="1.3" fill="currentColor" />
+      <path d="M 158 11 H 214" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 /** Delicate metallic gold calligraphy flourish swash wrapping around ampersands (&). */
 export function GoldAmpersandFlourishSVG({ className = "" }: { className?: string }) {
   return (

@@ -30,6 +30,7 @@
   --font-script: "Parisienne", "Cormorant Garamond", cursive;
   --font-heading: "Cormorant Garamond", Georgia, serif;
   --font-body: "Cormorant Garamond", Georgia, serif;
+  --font-numeral: "Playfair Display", "Cormorant Garamond", Georgia, serif;
 
   --text-display: clamp(2.5rem, 11vw, 3.25rem);
   --text-heading: 1rem;
@@ -171,5 +172,50 @@
     color: var(--color-foreground);
   }
 }
+
+@keyframes gentleSway {
+  0% {
+    transform: translateY(0px) rotate(-1.2deg);
+  }
+  50% {
+    transform: translateY(3px) rotate(1.2deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(-1.2deg);
+  }
+}
+
+.animate-gentle-sway-1 {
+  animation: gentleSway 4.2s ease-in-out infinite;
+}
+.animate-gentle-sway-2 {
+  animation: gentleSway 4.6s ease-in-out infinite 0.6s;
+}
+.animate-gentle-sway-3 {
+  animation: gentleSway 4.4s ease-in-out infinite 1.2s;
+}
+.animate-gentle-sway-4 {
+  animation: gentleSway 4.8s ease-in-out infinite 1.8s;
+}
+
+@keyframes numeralTick {
+  0% {
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(0.96);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-numeral-tick {
+  animation: numeralTick 380ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
 
 
