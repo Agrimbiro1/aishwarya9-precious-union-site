@@ -106,7 +106,12 @@ export type RsvpResponse = {
   name?: string | null;
 };
 
-export type GalleryItem = { id: string; imageUrl: string; caption?: string | null };
+export type GalleryItem = {
+  id: string;
+  imageUrl: string;
+  caption?: string | null;
+  whisperCaption?: string | null;
+};
 
 export type GalleryConfig = {
   sectionLabel: string;

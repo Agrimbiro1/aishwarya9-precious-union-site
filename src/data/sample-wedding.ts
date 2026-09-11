@@ -1,5 +1,10 @@
 import type { WeddingData, Guest } from "./types";
 import contactBg from "@/assets/contact-bg.jpg.asset.json";
+import firstMeetImg from "@/assets/first_meet.jpg";
+import proposalImg from "@/assets/proposal.jpg";
+import dateImg from "@/assets/date.jpg";
+import laughingImg from "@/assets/laughing.jpg";
+import togetherImg from "@/assets/together.jpg";
 
 
 /**
@@ -111,7 +116,38 @@ export const sampleWedding: WeddingData = {
   },
 
   /* Empty on purpose — demonstrates the illustrated gallery placeholder. */
-  gallery: [],
+  gallery: [
+    {
+      id: "g1",
+      imageUrl: firstMeetImg,
+      caption: "Where it began",
+      whisperCaption: "where two stories became one",
+    },
+    {
+      id: "g2",
+      imageUrl: proposalImg,
+      caption: "The Sweet Proposal",
+      whisperCaption: "she said yes, obviously",
+    },
+    {
+      id: "g3",
+      imageUrl: dateImg,
+      caption: "Planning The Table",
+      whisperCaption: "tasting coffee & picking flowers",
+    },
+    {
+      id: "g4",
+      imageUrl: laughingImg,
+      caption: "Us mostly Laughing",
+      whisperCaption: "bursting out laughing mid-pose",
+    },
+    {
+      id: "g5",
+      imageUrl: togetherImg,
+      caption: "Always and forever together",
+      whisperCaption: "here's to a lifetime of this",
+    },
+  ],
   galleryConfig: {
     sectionLabel: "Our Album",
     supportingLine: "A few of our favourite moments so far.",
