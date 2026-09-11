@@ -158,7 +158,12 @@ export function CountdownSection({ data }: { data: CountdownData }) {
 
   const past = valid && mounted && parts === null;
 
-  const units: Array<{ label: string; value: number | null }> = [
+  const units: [
+    { label: string; value: number | null },
+    { label: string; value: number | null },
+    { label: string; value: number | null },
+    { label: string; value: number | null }
+  ] = [
     { label: "Days", value: parts ? parts.days : null },
     { label: "Hours", value: parts ? parts.hours : null },
     { label: "Minutes", value: parts ? parts.minutes : null },

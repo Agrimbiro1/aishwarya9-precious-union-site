@@ -1,0 +1,5 @@
+mehendi: cx=360, cy=440, diam=374
+sangeet: cx=786, cy=681, diam=452
+haldi: cx=356, cy=976, diam=467
+wedding: cx=780, cy=1322, diam=404
+reception: cx=342, cy=1575, diam=478

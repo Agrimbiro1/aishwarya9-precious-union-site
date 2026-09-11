@@ -20,7 +20,7 @@ export function InvitationSection({ data }: { data: InvitationData }) {
   const isLongName = names.some((n) => n.length > 12);
 
   return (
-    <Section id="invitation" className="relative flex min-h-full flex-col items-center justify-center overflow-hidden p-3 sm:p-5 text-center">
+    <Section id="invitation" className="relative flex min-h-full flex-col items-center justify-center overflow-hidden p-3 sm:p-5 text-center ">
       {/* Outer Engraved Card Shell with Double Inset Border Frame */}
       <div className="relative mx-auto w-full max-w-[21.5rem] sm:max-w-[23.5rem] rounded-[2.25rem] border-[1.5px] border-accent-primary/75 bg-surface/90 px-6 sm:px-8 py-8 sm:py-10 text-center shadow-frame overflow-hidden">
         {/* Double Inset Hairline Frame 1: Prominent 1.5px Foil-Stamped Metallic Gold (#C89B48) */}
@@ -48,9 +48,8 @@ export function InvitationSection({ data }: { data: InvitationData }) {
 
           {/* 4. Couple Names in Connected Script Display Font with Metallic Gold Calligraphy Ampersand */}
           <h1
-            className={`mt-3 font-script leading-[0.85] sm:leading-[0.88] text-accent-primary ${
-              isLongName ? "text-[2.1rem]" : "text-[2.6rem] sm:text-[2.9rem]"
-            }`}
+            className={`mt-3 font-script leading-[0.85] sm:leading-[0.88] text-accent-primary ${isLongName ? "text-[2.1rem]" : "text-[2.6rem] sm:text-[2.9rem]"
+              }`}
           >
             {names.map((name, i) => (
               <span key={name} className="block break-words">
