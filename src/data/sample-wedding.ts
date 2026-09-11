@@ -182,9 +182,17 @@ export const sampleWedding: WeddingData = {
   familyConfig: {
     sectionLabel: "Our Families",
     supportingLine: "The people who made this celebration possible.",
-    brideSideLabel: "Bride's Family",
-    groomSideLabel: "Groom's Family",
+    brideSideLabel: "PARENTS OF THE BRIDE",
+    groomSideLabel: "PARENTS OF THE GROOM",
     initialVisiblePerGroup: 6,
+    brideParents: {
+      names: "Mr. Anil & Mrs. Meera Sharma",
+      message: "With joy in our hearts, we welcome you to share this day with our family.",
+    },
+    groomParents: {
+      names: "Mr. Rajesh & Mrs. Lakshmi Iyer",
+      message: "Your blessings mean everything to us. Thank you for standing with our children.",
+    },
   },
   /* Empty on purpose — demonstrates the "be the first" wishing-wall state. */
   wishes: [],

@@ -128,13 +128,20 @@ export type FamilyMember = {
   imageUrl?: string | null;
 };
 
+export type ParentsBlock = {
+  names: string;
+  message?: string | null;
+};
+
 export type FamilyConfig = {
   sectionLabel: string;
   supportingLine?: string | null;
   brideSideLabel: string;
   groomSideLabel: string;
   /** Members shown per group before "show more" (keeps 40-person lists usable). */
-  initialVisiblePerGroup: number;
+  initialVisiblePerGroup?: number;
+  brideParents?: ParentsBlock | null;
+  groomParents?: ParentsBlock | null;
 };
 
 export type Wish = {
