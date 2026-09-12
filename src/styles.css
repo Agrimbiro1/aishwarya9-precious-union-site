@@ -270,5 +270,31 @@
   }
 }
 
+@keyframes footerSparkleFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) scale(0.4) rotate(0deg);
+  }
+  15% {
+    opacity: 0.95;
+  }
+  55% {
+    opacity: 0.85;
+    transform: translateY(-240px) translateX(var(--sparkle-sway, 12px)) scale(1.2) rotate(15deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-480px) translateX(calc(var(--sparkle-sway, 12px) * -1)) scale(1.4) rotate(-20deg);
+  }
+}
+
+.animate-footer-sparkle {
+  animation-name: footerSparkleFloat;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-fill-mode: forwards;
+  animation-duration: var(--sparkle-duration, 3.8s);
+  animation-delay: var(--sparkle-delay, 0s);
+}
+
 
 

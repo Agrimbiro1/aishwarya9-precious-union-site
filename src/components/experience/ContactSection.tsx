@@ -69,15 +69,15 @@ export function ContactSection({
   return (
     <Section
       id="contact"
-      className="relative flex min-h-full flex-col justify-center border-t border-accent-secondary/30 py-12 px-4 text-center overflow-hidden"
+      className="relative flex flex-col justify-start border-t border-accent-secondary/30 pt-10 pb-10 sm:pt-14 sm:pb-14 px-4 text-center overflow-hidden"
     >
-      {/* Subtle Warm Ambient Paper Glow Wash (Candlelit warm ivory/gold radial bloom over cotton paper) */}
+      {/* Ultra-Smooth Warm Ivory Radial Ambient Glow — Seamless paper blend */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0 opacity-85"
+        className="pointer-events-none absolute inset-0 z-0 opacity-75"
         style={{
           background:
-            "radial-gradient(ellipse 80% 70% at 50% 48%, oklch(0.965 0.022 75 / 0.65) 0%, oklch(0.935 0.028 68 / 0.3) 55%, transparent 100%)",
+            "radial-gradient(circle at 50% 48%, oklch(0.97 0.018 82 / 0.5) 0%, oklch(0.965 0.012 82 / 0.28) 45%, oklch(0.958 0.006 82 / 0.1) 80%, transparent 100%)",
         }}
       />
 
