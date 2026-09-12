@@ -5,8 +5,6 @@ import { useGuest } from "@/lib/guest";
 import { formatEventWhen } from "@/lib/format";
 
 import eventFlowerImg from "@/assets/event-flower.png";
-import floralVineLtrImg from "@/assets/floral-vine-connector-ltr.png";
-import floralVineRtlImg from "@/assets/floral-vine-connector-rtl.png";
 import eventPortraitMehendi from "@/assets/event-portrait-mehendi.png";
 import eventPortraitSangeet from "@/assets/event-portrait-sangeet.png";
 import eventPortraitHaldi from "@/assets/event-portrait-haldi.png";
@@ -80,17 +78,58 @@ export function CircleFrameRing({ className = "" }: { className?: string }) {
 }
 
 /**
- * Reusable Organic Floral Vine Connector running between consecutive event circles.
- * Renders ONE unbroken, continuous watercolor vine stem spanning edge-to-edge.
+ * Single continuous unbroken Thin Golden Double-Line Ribbon Connector running between consecutive event circles.
+ * Replaces the dense floral vine with an elegant gilded thread motif in muted gold (#B8935A).
+ * Uses twin hairline strokes to define a delicate ribbon width.
  */
-export function FloralVineConnector({ isLeftToRight }: { isLeftToRight: boolean }) {
+export function GoldenRibbonConnector({ isLeftToRight }: { isLeftToRight: boolean }) {
+  // Path for Left-to-Right diagonal flow (Left circle -> Right circle)
+  const ltrLine1 = "M 116 0 C 116 60, 284 60, 284 120";
+  const ltrLine2 = "M 120 0 C 120 60, 280 60, 280 120";
+
+  // Path for Right-to-Left diagonal flow (Right circle -> Left circle)
+  const rtlLine1 = "M 284 0 C 284 60, 116 60, 116 120";
+  const rtlLine2 = "M 280 0 C 280 60, 120 60, 120 120";
+
+  const path1 = isLeftToRight ? ltrLine1 : rtlLine1;
+  const path2 = isLeftToRight ? ltrLine2 : rtlLine2;
+
   return (
-    <div className="relative w-full h-36 sm:h-48 -my-6 sm:-my-10 pointer-events-none select-none overflow-visible z-0 flex items-center justify-center">
-      <img
-        src={isLeftToRight ? floralVineLtrImg : floralVineRtlImg}
-        alt=""
-        className="w-full h-full object-contain mix-blend-multiply opacity-95 filter drop-shadow-[0_2px_4px_rgba(184,147,90,0.15)] transition-all duration-300"
-      />
+    <div className="relative w-full h-24 sm:h-32 -my-5 sm:-my-7 pointer-events-none select-none overflow-visible z-0 flex items-center justify-center">
+      <svg
+        className="w-full h-full text-[#B8935A]"
+        viewBox="0 0 400 120"
+        fill="none"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        {/* Double Hairline Golden Ribbon Parallel Strokes */}
+        <path
+          d={path1}
+          stroke="#B8935A"
+          strokeWidth="1.15"
+          strokeLinecap="round"
+          strokeOpacity="0.88"
+        />
+        <path
+          d={path2}
+          stroke="#B8935A"
+          strokeWidth="1.15"
+          strokeLinecap="round"
+          strokeOpacity="0.88"
+        />
+
+        {/* Minimal Delicate Gold Ribbon Knot Accent at Midpoint */}
+        <g transform="translate(200, 60)">
+          {/* Outer Gold Knot Loop */}
+          <circle cx="0" cy="0" r="3.2" fill="#FAF5EE" stroke="#B8935A" strokeWidth="1.1" />
+          {/* Inner Deep Maroon Core Dot */}
+          <circle cx="0" cy="0" r="1.3" fill="#7A1E1E" />
+          {/* Micro Gold Star Diamond Accent Points */}
+          <path d="M 0 -5.5 L 1 -3.2 L 0 -1 L -1 -3.2 Z" fill="#B8935A" opacity="0.85" />
+          <path d="M 0 1 L 1 3.2 L 0 5.5 L -1 3.2 Z" fill="#B8935A" opacity="0.85" />
+        </g>
+      </svg>
     </div>
   );
 }
@@ -160,7 +199,7 @@ function getEventPortrait(id: string, index: number): string {
 }
 
 /**
- * Redesigned Events Section with alternating circular couple portraits & floral vine connector
+ * Redesigned Events Section with alternating circular couple portraits & thin golden double-line ribbon connector
  */
 export function EventsSection({
   events,
@@ -252,8 +291,9 @@ export function EventsSection({
               <div key={event.id} className="relative">
                 {/* Event Card Row */}
                 <div
-                  className={`flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 ${isLeft ? "sm:flex-row" : "sm:flex-row-reverse"
-                    } ${isInvited ? "" : "opacity-65"}`}
+                  className={`flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 ${
+                    isLeft ? "sm:flex-row" : "sm:flex-row-reverse"
+                  } ${isInvited ? "" : "opacity-65"}`}
                 >
                   {/* Circular Couple Portrait Box */}
                   <div className="relative shrink-0 group">
@@ -300,9 +340,9 @@ export function EventsSection({
                   </div>
                 </div>
 
-                {/* Floral Vine Connector trailing down to the next event */}
+                {/* Golden Ribbon Connector trailing down to the next event */}
                 {idx < visible.length - 1 ? (
-                  <FloralVineConnector isLeftToRight={isLeft} />
+                  <GoldenRibbonConnector isLeftToRight={isLeft} />
                 ) : null}
               </div>
             );
