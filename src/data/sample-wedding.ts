@@ -194,8 +194,57 @@ export const sampleWedding: WeddingData = {
       message: "Your blessings mean everything to us. Thank you for standing with our children.",
     },
   },
-  /* Empty on purpose — demonstrates the "be the first" wishing-wall state. */
-  wishes: [],
+  /* Sample wishes for the Ornate Pinned Wishing Wall. */
+  wishes: [
+    {
+      id: "w_1",
+      from: "Aunty Radhika",
+      message: "May your lives together be filled with laughter, endless happiness, and sweet cups of chai!",
+      createdAt: "2026-11-20T10:00:00Z",
+    },
+    {
+      id: "w_2",
+      from: "Vikram Iyer",
+      message: "Wishing you both a lifetime of love and adventurous train journeys together. Can't wait for the Sangeet!",
+      createdAt: "2026-11-21T14:30:00Z",
+    },
+    {
+      id: "w_3",
+      from: "Aarav & Nidhi",
+      message: "So thrilled to celebrate this beautiful union. May your bond grow stronger with every passing day!",
+      createdAt: "2026-11-22T09:15:00Z",
+    },
+    {
+      id: "w_4",
+      from: "Meera & Anil Sharma",
+      message: "Our dearest Kavya and Rohan, our blessings are always with you as you step into this magical new chapter.",
+      createdAt: "2026-11-23T18:40:00Z",
+    },
+    {
+      id: "w_5",
+      from: "Kabir Malhotra",
+      message: "To the couple of the decade! Here's to love, marigolds, and unforgettable celebrations in Jaipur.",
+      createdAt: "2026-11-24T11:20:00Z",
+    },
+    {
+      id: "w_6",
+      from: "Smt. Kamala Devi",
+      message: "Sada Sukhi Raho! May God shower endless peace, prosperity, and joy upon your home.",
+      createdAt: "2026-11-25T08:00:00Z",
+    },
+    {
+      id: "w_7",
+      from: "Ananya Deshpande",
+      message: "Super excited for the wedding of the century! Wishing you two eternal love and warm smiles.",
+      createdAt: "2026-11-25T16:45:00Z",
+    },
+    {
+      id: "w_8",
+      from: "Shri Gopal Sharma",
+      message: "May your journey together be as serene as Jaipur mornings and as bright as the evening stars.",
+      createdAt: "2026-11-26T12:00:00Z",
+    },
+  ],
   wishesConfig: {
     sectionLabel: "Wishing Wall",
     supportingLine: "Leave a blessing for us to read on the morning of the wedding.",

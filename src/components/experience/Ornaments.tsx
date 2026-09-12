@@ -662,5 +662,177 @@ export function FountainUrn({ className = "" }: { className?: string }) {
   );
 }
 
+/**
+ * Ornate thin-ink border frame component for the Wishing Wall (matching Reference Image 1 style).
+ * Features top center maroon ribbon bow, marigold/jasmine clusters, side winding ribbons,
+ * oil lamp / diya & floral sprig side accents, and bottom vase with marigolds tied with bow.
+ */
+export function OrnateWishingFrame({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 400 580"
+      className={className}
+      fill="none"
+      aria-hidden="true"
+    >
+      {/* 1. TOP RIBBON BOW (Center Top) */}
+      <path
+        d="M 140 32 C 160 12, 185 24, 200 36 C 215 24, 240 12, 260 32 C 275 48, 255 60, 235 50 C 215 40, 205 52, 200 54 C 195 52, 185 40, 165 50 C 145 60, 125 48, 140 32 Z"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinejoin="round"
+      />
+      {/* Bow Knot with Gold Accent */}
+      <ellipse cx="200" cy="38" rx="7" ry="5.5" fill="#C89B48" stroke="currentColor" strokeWidth="1.6" />
+      {/* Bow Inner Folds */}
+      <path d="M 162 30 C 172 38, 188 42, 192 38 M 238 30 C 228 38, 212 42, 208 38" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      
+      {/* Bow Streamers Flanking Left & Right across top */}
+      <path
+        d="M 192 44 C 170 70, 140 30, 100 24 C 70 20, 45 32, 24 38 M 208 44 C 230 70, 260 30, 300 24 C 330 20, 355 32, 376 38"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M 194 48 C 175 75, 148 38, 106 30 C 78 25, 52 38, 30 46 M 206 48 C 225 75, 252 38, 294 30 C 322 25, 348 38, 370 46"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+
+      {/* 2. TOP FLORAL CLUSTERS (Flanking the Bow - Marigolds & Jasmine) */}
+      {/* Top Left Marigold Cluster */}
+      <g stroke="currentColor" strokeWidth="1.6" fill="none">
+        <circle cx="50" cy="22" r="7" strokeDasharray="3 2" />
+        <circle cx="50" cy="22" r="3" fill="currentColor" opacity="0.3" />
+        <path d="M 40 16 C 36 8, 48 4, 52 14 M 60 18 C 68 12, 70 24, 58 26 M 38 28 C 30 24, 34 36, 44 32" strokeLinecap="round" />
+        <path d="M 28 14 C 20 18, 24 26, 32 22" strokeLinecap="round" />
+        <circle cx="28" cy="14" r="1.5" fill="currentColor" />
+        <circle cx="34" cy="10" r="1.5" fill="currentColor" />
+      </g>
+      
+      {/* Top Right Marigold Cluster */}
+      <g stroke="currentColor" strokeWidth="1.6" fill="none">
+        <circle cx="350" cy="22" r="7" strokeDasharray="3 2" />
+        <circle cx="350" cy="22" r="3" fill="currentColor" opacity="0.3" />
+        <path d="M 360 16 C 364 8, 352 4, 348 14 M 340 18 C 332 12, 330 24, 342 26 M 362 28 C 370 24, 366 36, 356 32" strokeLinecap="round" />
+        <path d="M 372 14 C 380 18, 376 26, 368 22" strokeLinecap="round" />
+        <circle cx="372" cy="14" r="1.5" fill="currentColor" />
+        <circle cx="366" cy="10" r="1.5" fill="currentColor" />
+      </g>
+
+      {/* 3. WINDING RIBBON SIDE BORDERS (Left & Right) */}
+      {/* Left Winding Ribbon Border */}
+      <path
+        d="M 24 38 C 10 80, 32 120, 20 170 C 8 220, 34 270, 20 330 C 8 390, 32 440, 18 500"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M 30 46 C 16 86, 38 126, 26 176 C 14 226, 40 276, 26 336 C 14 396, 38 446, 24 504"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+      />
+      
+      {/* Right Winding Ribbon Border */}
+      <path
+        d="M 376 38 C 390 80, 368 120, 380 170 C 392 220, 366 270, 380 330 C 392 390, 368 440, 382 500"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M 370 46 C 384 86, 362 126, 374 176 C 386 226, 360 276, 374 336 C 386 396, 362 446, 376 504"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+      />
+
+      {/* 4. MID-SIDE DECORATIVE MOTIFS */}
+      {/* Left Mid-Side Accent: Traditional Indian Diya (Oil Lamp) with Flame */}
+      <g transform="translate(2, 210)" stroke="currentColor" strokeWidth="1.6" fill="none">
+        <path d="M 6 18 C 12 28, 30 28, 34 18 C 30 16, 20 14, 6 18 Z" strokeLinejoin="round" />
+        <path d="M 28 14 C 26 6, 32 2, 30 -4 C 24 2, 22 8, 28 14 Z" fill="#C89B48" stroke="#C89B48" opacity="0.9" />
+        <circle cx="30" cy="-6" r="1.5" fill="#C89B48" />
+        <path d="M 12 24 C 6 30, 2 38, 8 44" strokeWidth="1.2" strokeLinecap="round" />
+      </g>
+
+      {/* Right Mid-Side Accent: Delicate Hanging Floral Bud / Marigold Sprig */}
+      <g transform="translate(364, 210)" stroke="currentColor" strokeWidth="1.6" fill="none">
+        <path d="M 12 0 C 18 12, 10 24, 16 34" strokeWidth="1.4" strokeLinecap="round" />
+        <circle cx="16" cy="34" r="5" strokeDasharray="2 1.5" />
+        <path d="M 10 30 C 6 24, 14 20, 20 28" strokeLinecap="round" />
+        <circle cx="16" cy="34" r="2" fill="currentColor" opacity="0.4" />
+        <path d="M 4 12 C 10 8, 18 14, 14 20" strokeWidth="1.2" strokeLinecap="round" />
+      </g>
+
+      {/* 5. BOTTOM CORNER MOTIFS */}
+      {/* Bottom Left: Ornate Floral Vase with Marigold & Jasmine Bouquet tied with Ribbon */}
+      <g transform="translate(8, 420)" stroke="currentColor" fill="none">
+        {/* Vase Body & Rim */}
+        <path d="M 28 80 C 24 64, 20 54, 30 50 L 44 50 C 54 54, 50 64, 46 80 Z" strokeWidth="2" strokeLinejoin="round" />
+        <ellipse cx="37" cy="50" rx="8" ry="3" strokeWidth="1.6" />
+        <path d="M 24 88 H 50 L 46 96 H 28 Z" strokeWidth="1.8" strokeLinejoin="round" />
+        <path d="M 37 58 C 30 64, 30 72, 37 76 C 44 72, 44 64, 37 58 Z" strokeWidth="1.2" />
+        
+        {/* Ribbon Bow on Vase */}
+        <path d="M 30 62 C 22 56, 18 68, 28 66 M 44 62 C 52 56, 56 68, 46 66" strokeWidth="1.8" strokeLinecap="round" />
+        <circle cx="37" cy="64" r="2.5" fill="#C89B48" stroke="currentColor" strokeWidth="1" />
+        <path d="M 34 66 C 28 78, 20 86, 14 94 M 40 66 C 46 78, 52 86, 58 94" strokeWidth="1.6" strokeLinecap="round" />
+
+        {/* Flowers & Stems Sprouting from Vase */}
+        <path d="M 37 50 V 16 M 32 50 C 26 36, 20 28, 16 18 M 42 50 C 48 36, 54 28, 58 20 M 34 50 C 28 40, 24 34, 26 26" strokeWidth="1.5" strokeLinecap="round" />
+        {/* Marigold Petal Heads */}
+        <circle cx="37" cy="12" r="7" strokeWidth="1.8" strokeDasharray="3 1.5" />
+        <circle cx="37" cy="12" r="3" fill="currentColor" opacity="0.3" />
+        <circle cx="16" cy="16" r="5" strokeWidth="1.6" strokeDasharray="2.5 1.5" />
+        <circle cx="58" cy="18" r="6" strokeWidth="1.6" strokeDasharray="2.5 1.5" />
+        <path d="M 8 10 C 14 6, 20 12, 14 18 M 52 10 C 58 6, 64 14, 58 20" strokeWidth="1.3" strokeLinecap="round" />
+      </g>
+
+      {/* Bottom Right: Decorative Diya Dish / Brass Thali with Marigold Petals & Sparks */}
+      <g transform="translate(322, 480)" stroke="currentColor" fill="none">
+        <ellipse cx="40" cy="40" rx="30" ry="10" strokeWidth="2" />
+        <ellipse cx="40" cy="38" rx="22" ry="7" strokeWidth="1.4" />
+        {/* Small Central Diya Flame */}
+        <path d="M 40 32 C 36 22, 44 16, 40 8 C 34 16, 42 22, 40 32 Z" fill="#C89B48" stroke="#C89B48" strokeWidth="1" opacity="0.95" />
+        {/* Petals scattered on tray */}
+        <circle cx="26" cy="38" r="2" fill="currentColor" opacity="0.6" />
+        <circle cx="32" cy="42" r="2.5" fill="currentColor" opacity="0.6" />
+        <circle cx="50" cy="40" r="2" fill="currentColor" opacity="0.6" />
+        <circle cx="54" cy="36" r="1.8" fill="currentColor" opacity="0.6" />
+        {/* Rising Light Sparks */}
+        <path d="M 40 4 M 36 -2 M 44 -4" strokeWidth="1.2" strokeLinecap="round" />
+        <circle cx="40" cy="-4" r="1" fill="#C89B48" />
+        <circle cx="34" cy="-8" r="1" fill="#C89B48" />
+        <circle cx="46" cy="-10" r="1" fill="#C89B48" />
+      </g>
+
+      {/* 6. BOTTOM BASELINE & GROUND LINES */}
+      <path
+        d="M 12 535 C 80 545, 160 540, 240 545 C 310 540, 360 545, 388 535"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M 28 544 C 100 552, 200 548, 300 552 C 340 550, 370 548, 380 544"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+      />
+      {/* Small scattered marigold petals at base center */}
+      <circle cx="160" cy="542" r="1.8" fill="currentColor" opacity="0.5" />
+      <circle cx="180" cy="545" r="2.2" fill="currentColor" opacity="0.5" />
+      <circle cx="210" cy="543" r="1.8" fill="currentColor" opacity="0.5" />
+      <circle cx="230" cy="546" r="2" fill="currentColor" opacity="0.5" />
+    </svg>
+  );
+}
+
+
 
 

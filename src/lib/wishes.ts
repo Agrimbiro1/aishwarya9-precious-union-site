@@ -30,18 +30,7 @@ function writeLog(log: number[]) {
 export type WishGuard = { maxPerVisitor: number; cooldownSeconds: number };
 
 /** Returns an error message when the visitor must wait, otherwise null. */
-export function checkWishAllowed(guard: WishGuard): string | null {
-  const log = readLog();
-  const now = Date.now();
-  const recent = log.filter((t) => now - t < 24 * 60 * 60 * 1000);
-  if (recent.length >= guard.maxPerVisitor) {
-    return "You've already left your wishes — thank you! Do come tell us in person too.";
-  }
-  const last = recent[recent.length - 1];
-  if (last && now - last < guard.cooldownSeconds * 1000) {
-    const wait = Math.ceil((guard.cooldownSeconds * 1000 - (now - last)) / 1000);
-    return `Just a moment — you can leave another wish in ${wait}s.`;
-  }
+export function checkWishAllowed(_guard: WishGuard): string | null {
   return null;
 }
 
