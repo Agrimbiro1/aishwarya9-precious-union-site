@@ -419,10 +419,10 @@ export function RsvpSection({
         )}
       </div>
 
-      {/* Clear Section Transition Guide to Travel & Stay */}
+      {/* Clear Section Transition Guide to Travel Details */}
       <div className="mt-8 flex flex-col items-center justify-center opacity-65 transition-opacity hover:opacity-90 pointer-events-none">
         <p className="font-heading text-[0.6rem] uppercase tracking-[0.3em] text-[#7A1E1E]/70 font-semibold">
-          Scroll for Travel & Stay
+          Scroll for Travel Details
         </p>
         <svg viewBox="0 0 24 12" className="mt-1 w-4 h-2 text-[#7A1E1E]/50" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M 4 3 L 12 9 L 20 3" />

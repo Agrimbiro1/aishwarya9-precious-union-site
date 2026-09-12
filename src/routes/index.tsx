@@ -55,7 +55,7 @@ function Page() {
           <FamilySection members={data.family} config={data.familyConfig} />
           <WishesSection wishes={data.wishes} config={data.wishesConfig} />
           <RsvpSection config={data.rsvp} events={data.events} />
-          <TravelSection options={data.travel} config={data.travelConfig} />
+          <TravelSection options={data.travel} config={data.travelConfig} initials={data.opening.monogramText} />
           <ContactSection people={data.contacts} config={data.contactConfig} />
           <FooterSection data={data.footer} />
         </InvitationExperience>
