@@ -237,5 +237,38 @@
   scrollbar-color: oklch(0.39 0.147 26.5 / 35%) oklch(0.694 0.069 15.4 / 10%);
 }
 
+@keyframes redHeartBubbleFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) translateX(0px) scale(0.5) rotate(0deg);
+  }
+  12% {
+    opacity: 0.95;
+  }
+  45% {
+    transform: translateY(-200px) translateX(var(--wobble-1, -12px)) scale(1.1) rotate(var(--heart-tilt, -10deg));
+  }
+  75% {
+    opacity: 0.9;
+    transform: translateY(-380px) translateX(var(--wobble-2, 12px)) scale(1.25) rotate(calc(var(--heart-tilt, -10deg) * -1));
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-560px) translateX(var(--wobble-1, -8px)) scale(1.35) rotate(var(--heart-tilt, 14deg));
+  }
+}
+
+.animate-red-heart-bubble {
+  animation: redHeartBubbleFloat var(--float-duration, 4s) cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--float-delay, 0s) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-red-heart-bubble {
+    animation: none !important;
+    opacity: 0.8;
+    transform: translateY(-30px);
+  }
+}
+
 
 
