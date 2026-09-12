@@ -192,6 +192,7 @@ export type ContactPerson = {
 export type ContactConfig = {
   sectionLabel: string;
   supportingLine?: string | null;
+  closingLine?: string | null;
   /** Photographic backdrop for this one section (framed to match the system). */
   backgroundImageUrl?: string | null;
 };

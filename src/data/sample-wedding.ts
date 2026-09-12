@@ -297,7 +297,8 @@ export const sampleWedding: WeddingData = {
   contactConfig: {
     sectionLabel: "Need a Hand?",
     supportingLine: "Call or message any of us — we're happy to help with anything.",
-    backgroundImageUrl: contactBg.url,
+    closingLine: "We're just a message away — don't hesitate to reach out anytime.",
+    backgroundImageUrl: null,
   },
   footer: {
     closingLine: "We can't wait to celebrate with you",
