@@ -7,6 +7,9 @@ const FRAME_H = 932;
 const BEZEL = 14;
 const OUTER_R = 66;
 
+const SCREEN_W = FRAME_W - 2 * BEZEL;
+const SCREEN_H = FRAME_H - 2 * BEZEL;
+
 /**
  * PRD §7.2 — one mobile-shaped experience. On phones it is the site; on larger
  * screens the identical tree is scaled (never re-laid-out) inside an original
@@ -159,8 +162,8 @@ export function PhoneStage({ children }: { children: ReactNode }) {
           >
             <div
               style={{
-                width: FRAME_W,
-                height: FRAME_H,
+                width: SCREEN_W,
+                height: SCREEN_H,
                 transform: `scale(${s})`,
                 transformOrigin: "top left",
               }}

@@ -38,17 +38,17 @@ export function InvitationSection({ data }: { data: InvitationData }) {
 
           {/* 2. Personalization / Greeting Line */}
           {greeting ? (
-            <p className="mt-1.5 font-body text-body italic text-ink/85">{greeting}</p>
+            <p className="mt-1.5 w-full text-center font-body text-body italic text-ink/85">{greeting}</p>
           ) : null}
 
           {/* 3. Eyebrow Label (Generous Ribbon-to-Eyebrow breathing room) */}
-          <p className="mt-3.5 sm:mt-4 font-heading text-[0.62rem] sm:text-[0.66rem] uppercase tracking-[0.36em] sm:tracking-[0.38em] text-ink/70 font-semibold">
+          <p className="mt-3.5 sm:mt-4 w-full text-center font-heading text-[0.62rem] sm:text-[0.66rem] uppercase tracking-[0.36em] sm:tracking-[0.38em] pl-[0.36em] sm:pl-[0.38em] text-ink/70 font-semibold">
             {data.eyebrowLabel}
           </p>
 
           {/* 4. Couple Names in Connected Script Display Font with Metallic Gold Calligraphy Ampersand */}
           <h1
-            className={`mt-3 font-script leading-[0.85] sm:leading-[0.88] text-accent-primary ${isLongName ? "text-[2.1rem]" : "text-[2.6rem] sm:text-[2.9rem]"
+            className={`mt-3 w-full text-center font-script leading-[0.85] sm:leading-[0.88] text-accent-primary ${isLongName ? "text-[2.1rem]" : "text-[2.6rem] sm:text-[2.9rem]"
               }`}
           >
             {names.map((name, i) => (
@@ -70,7 +70,7 @@ export function InvitationSection({ data }: { data: InvitationData }) {
 
           {/* 5. Date Label */}
           {dateLabel ? (
-            <p className="mt-3.5 font-heading text-label uppercase tracking-[0.28em] text-ink/90 font-bold">
+            <p className="mt-3.5 w-full text-center font-heading text-label uppercase tracking-[0.28em] pl-[0.28em] text-ink/90 font-bold">
               {dateLabel}
             </p>
           ) : null}

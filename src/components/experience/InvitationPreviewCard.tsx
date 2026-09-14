@@ -56,13 +56,13 @@ export function InvitationPreviewCard({
 
           {/* 1. Guest Personalization Line FIRST */}
           {guest.isPersonalized ? (
-            <p className="mt-2 w-full text-center font-heading text-micro uppercase tracking-[0.26em] text-accent-primary font-bold">
+            <p className="mt-2 w-full text-center font-heading text-micro uppercase tracking-[0.26em] pl-[0.26em] text-accent-primary font-bold">
               {guest.personalize(data.guestLineTemplate)}
             </p>
           ) : null}
 
           {/* 2. Eyebrow Label (Generous Ribbon-to-Eyebrow breathing room) */}
-          <p className="mt-3.5 w-full text-center font-heading text-[0.62rem] uppercase tracking-[0.36em] text-ink/70 font-semibold">
+          <p className="mt-3.5 w-full text-center font-heading text-[0.62rem] uppercase tracking-[0.36em] pl-[0.36em] text-ink/70 font-semibold">
             {data.eyebrowLabel}
           </p>
 
@@ -93,7 +93,7 @@ export function InvitationPreviewCard({
 
           {/* 5. Date AND Venue together as one line */}
           {dateAndVenue ? (
-            <p className="mt-3.5 w-full text-center font-heading text-label uppercase tracking-[0.2em] text-ink/90 font-semibold">
+            <p className="mt-3.5 w-full text-center font-heading text-label uppercase tracking-[0.2em] pl-[0.2em] text-ink/90 font-semibold">
               {dateAndVenue}
             </p>
           ) : null}
@@ -108,13 +108,13 @@ export function InvitationPreviewCard({
           <button
             type="button"
             onClick={onOpen}
-            className="mx-auto w-full min-h-12 rounded-xl bg-gradient-to-b from-[#882222] via-[#7A1E1E] to-[#5D1616] border-[1.5px] border-accent-gold px-6 py-3.5 font-heading text-[0.78rem] uppercase tracking-[0.32em] text-surface font-medium shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.25),0_0_8px_rgba(200,155,72,0.25),0_6px_20px_rgba(92,21,21,0.35)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[inset_0_1px_2px_rgba(255,255,255,0.35),0_0_16px_rgba(200,155,72,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold"
+            className="mx-auto w-full min-h-12 rounded-xl bg-gradient-to-b from-[#882222] via-[#7A1E1E] to-[#5D1616] border-[1.5px] border-accent-gold px-6 py-3.5 font-heading text-[0.78rem] uppercase tracking-[0.32em] pl-[0.32em] text-surface font-medium shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.25),0_0_8px_rgba(200,155,72,0.25),0_6px_20px_rgba(92,21,21,0.35)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[inset_0_1px_2px_rgba(255,255,255,0.35),0_0_16px_rgba(200,155,72,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold text-center"
           >
             {data.ctaLabel}
           </button>
 
           {/* Micro-copy in lighter maroon tint (#A8746E) */}
-          <p className="mt-3 w-full text-center font-heading text-micro uppercase tracking-[0.22em] text-[#A8746E] font-medium">
+          <p className="mt-3 w-full text-center font-heading text-micro uppercase tracking-[0.22em] pl-[0.22em] text-[#A8746E] font-medium">
             {data.ctaSubtext}
           </p>
         </div>
