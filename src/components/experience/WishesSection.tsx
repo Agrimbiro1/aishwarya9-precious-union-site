@@ -4,7 +4,9 @@ import type { Wish, WishesConfig } from "@/data/types";
 import { useGuest } from "@/lib/guest";
 import { submitWish } from "@/lib/wishes";
 import wideDoodleFrameImg from "@/assets/wishing-wall-wide-doodle-frame.png";
+import wideDoodleFrameWebp from "@/assets/wishing-wall-wide-doodle-frame.webp";
 import phoneTexture from "@/assets/phone-texture.png.asset.json";
+import { getResponsiveBackgroundImage } from "@/lib/image";
 
 /** Rotation angles for pinned note cards (2.6° to 3.6° organic tilts) to create genuine wall collage feel */
 const NOTE_ROTATION_ANGLES = [-2.8, 3.2, -3.6, 2.7, -3.1, 3.5, -2.6, 3.3, -3.4, 2.9];
@@ -70,7 +72,11 @@ function WishNoteCard({
       className={`relative mx-auto w-full max-w-[340px] sm:max-w-[360px] ${corners} border border-[#D8C2A7] bg-[#F7F0E3] p-4 shadow-[2.5px_3.5px_0px_rgba(122,30,30,0.18)] transition-all duration-300 [transform:rotate(var(--note-angle))] hover:[transform:rotate(0deg)_scale(1.025)] hover:shadow-[4px_5px_0px_rgba(122,30,30,0.28)]`}
       style={{
         ["--note-angle" as string]: `${angle}deg`,
-        backgroundImage: `url(${phoneTexture.url})`,
+        ...getResponsiveBackgroundImage(
+          phoneTexture.webpUrl || phoneTexture.url.replace(/\.(png|jpg|jpeg)$/, ".webp"),
+          phoneTexture.url,
+          "image/png"
+        ),
         backgroundSize: "240px auto",
         backgroundRepeat: "repeat",
       }}
@@ -176,13 +182,15 @@ export function WishesSection({
 
       {/* 2. TALL VERTICAL RECTANGLE DOODLE BORDER FRAME */}
       <div className="relative mx-auto w-full max-w-lg min-h-[640px] sm:min-h-[680px]">
-        {/* Transparent PNG Line Art Overlay (scaled into a tall vertical rectangle ratio) */}
-        <img
-          src={wideDoodleFrameImg}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 size-full object-fill pointer-events-none opacity-95 z-10"
-        />
+        <picture className="absolute inset-0 size-full pointer-events-none opacity-95 z-10">
+          <source srcSet={wideDoodleFrameWebp} type="image/webp" />
+          <img
+            src={wideDoodleFrameImg}
+            alt=""
+            aria-hidden="true"
+            className="size-full object-fill"
+          />
+        </picture>
 
         {/* Content Window sitting comfortably with spacious top, bottom, and card-to-card breathing room */}
         <div className="relative z-20 flex flex-col justify-between h-full pt-20 sm:pt-24 pb-10 sm:pb-12 px-6 sm:px-12">
@@ -231,7 +239,11 @@ export function WishesSection({
         <div
           className="relative rounded-[4px_8px_3px_6px] border-2 border-dashed border-accent-primary/45 bg-[#F7F0E3] p-1 shadow-[2px_2.5px_0px_rgba(122,30,30,0.14)] transition-colors focus-within:border-accent-primary focus-within:bg-[#FAF4EA]"
           style={{
-            backgroundImage: `url(${phoneTexture.url})`,
+            ...getResponsiveBackgroundImage(
+              phoneTexture.webpUrl || phoneTexture.url.replace(/\.(png|jpg|jpeg)$/, ".webp"),
+              phoneTexture.url,
+              "image/png"
+            ),
             backgroundSize: "240px auto",
             backgroundRepeat: "repeat",
           }}

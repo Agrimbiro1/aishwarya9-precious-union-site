@@ -14,7 +14,9 @@ import {
   HandDrawnSprigSVG,
 } from "./CoupleArtwork";
 import flowerGateImg from "@/assets/flower-gate.png";
+import flowerGateWebp from "@/assets/flower-gate.webp";
 import coupleCutoutImg from "@/assets/couple-cutout.png";
+import coupleCutoutWebp from "@/assets/couple-cutout.webp";
 
 /**
  * CoupleSection — Full-bleed edge-to-edge architectural scene layout.
@@ -119,25 +121,35 @@ export function CoupleSection({ data }: { data: CoupleData }) {
         <GoldenHourHaloSVG className="pointer-events-none absolute top-[10%] left-1/2 -translate-x-1/2 w-[92%] h-auto z-5 opacity-90" />
 
         {/* LAYER 1 (z-10): Exact Provided Floral Gate Asset Image (flower-gate.png) */}
-        <img
-          src={flowerGateImg}
-          alt="Floral Gate Arch"
-          className="pointer-events-none absolute inset-0 size-full object-contain mix-blend-multiply z-10"
-        />
+        <picture className="pointer-events-none absolute inset-0 size-full z-10 mix-blend-multiply">
+          <source srcSet={flowerGateWebp} type="image/webp" />
+          <img
+            src={flowerGateImg}
+            alt="Floral Gate Arch"
+            className="size-full object-contain mix-blend-multiply"
+          />
+        </picture>
 
         {/* Isolated Couple Cutout Image with ultra-smooth bottom gradient dissolve */}
-        <img
-          src={portraitSrc}
-          alt={title ? `Portrait of ${title}` : "The couple"}
-          loading="eager"
-          className="absolute left-1/2 top-[31%] -translate-x-1/2 w-[70%] h-auto max-h-[66%] object-contain mix-blend-multiply z-20 transition-transform duration-500 hover:scale-[1.02]"
+        <picture
+          className="absolute left-1/2 top-[31%] -translate-x-1/2 w-[70%] h-auto max-h-[66%] z-20 transition-transform duration-500 hover:scale-[1.02] mix-blend-multiply"
           style={{
             maskImage:
               "linear-gradient(to bottom, black 0%, black 72%, rgba(0, 0, 0, 0.6) 84%, transparent 97%)",
             WebkitMaskImage:
               "linear-gradient(to bottom, black 0%, black 72%, rgba(0, 0, 0, 0.6) 84%, transparent 97%)",
           }}
-        />
+        >
+          {portraitSrc === coupleCutoutImg ? (
+            <source srcSet={coupleCutoutWebp} type="image/webp" />
+          ) : null}
+          <img
+            src={portraitSrc}
+            alt={title ? `Portrait of ${title}` : "The couple"}
+            loading="eager"
+            className="w-full h-auto object-contain mix-blend-multiply"
+          />
+        </picture>
 
         {/* LAYER 3 (z-25): Engraving Line-Art Ground Treatment (Hatching shadow, grass, petals, pebbles & ground line) */}
         <CoupleEngravingGroundSVG className="pointer-events-none absolute bottom-[9.5%] left-1/2 -translate-x-1/2 w-[92%] h-auto z-25 opacity-95" />

@@ -84,12 +84,18 @@ export function ContactSection({
       {/* Optional Background Image Layer (Softened to blend with page texture) */}
       {config.backgroundImageUrl && !config.backgroundImageUrl.startsWith("/__l5e/") ? (
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0">
-          <img
-            src={config.backgroundImageUrl}
-            alt=""
-            loading="lazy"
-            className="size-full object-cover opacity-15 mix-blend-multiply"
-          />
+          <picture className="size-full mix-blend-multiply">
+            <source
+              srcSet={config.backgroundImageUrl.replace(/\.(jpg|png|jpeg)$/, ".webp")}
+              type="image/webp"
+            />
+            <img
+              src={config.backgroundImageUrl}
+              alt=""
+              loading="lazy"
+              className="size-full object-cover opacity-15 mix-blend-multiply"
+            />
+          </picture>
         </div>
       ) : null}
 

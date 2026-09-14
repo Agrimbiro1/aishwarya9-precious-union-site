@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Section } from "./InvitationExperience";
 import type { FooterData } from "@/data/types";
 import dovesRibbonImg from "@/assets/doves-ribbon-countdown.png";
+import dovesRibbonWebp from "@/assets/doves-ribbon-countdown.webp";
 
 /**
  * Footer — closing line, love birds holding ribbon illustration, monogram crest, hashtag ribbon tag, share action, and final closing flourish.
@@ -393,11 +394,14 @@ export function FooterSection({ data }: { data: FooterData }) {
       <div className="relative z-10 mx-auto w-full max-w-lg">
         {/* Hand-Drawn Love Birds & Ribbon Illustration Header */}
         <div className="relative mx-auto w-full max-w-[16rem] sm:max-w-[18.5rem] select-none pointer-events-none mb-1">
-          <img
-            src={dovesRibbonImg}
-            alt="Hand-drawn love birds holding ribbon illustration"
-            className="w-full h-auto object-contain mix-blend-multiply opacity-95 filter drop-shadow-[0_2px_4px_rgba(122,30,30,0.12)]"
-          />
+          <picture className="w-full h-auto mix-blend-multiply">
+            <source srcSet={dovesRibbonWebp} type="image/webp" />
+            <img
+              src={dovesRibbonImg}
+              alt="Hand-drawn love birds holding ribbon illustration"
+              className="w-full h-auto object-contain mix-blend-multiply opacity-95 filter drop-shadow-[0_2px_4px_rgba(122,30,30,0.12)]"
+            />
+          </picture>
         </div>
 
         {/* EMOTIONAL CLIMAX CLOSING LINE — Hero font size with grand breathing room */}

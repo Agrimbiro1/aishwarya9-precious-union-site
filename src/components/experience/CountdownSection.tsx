@@ -4,6 +4,7 @@ import { Divider, DoveDivider } from "./Ornaments";
 import type { CountdownData } from "@/data/types";
 import { useGuest } from "@/lib/guest";
 import dovesRibbonImg from "@/assets/doves-ribbon-countdown.png";
+import dovesRibbonWebp from "@/assets/doves-ribbon-countdown.webp";
 
 type Parts = { days: number; hours: number; minutes: number; seconds: number };
 
@@ -257,11 +258,14 @@ export function CountdownSection({ data }: { data: CountdownData }) {
                 />
               </svg>
 
-              <img
-                src={dovesRibbonImg}
-                alt="Hand-drawn doves holding ribbon illustration"
-                className="w-full h-auto object-contain mix-blend-multiply opacity-95"
-              />
+              <picture className="w-full h-auto mix-blend-multiply">
+                <source srcSet={dovesRibbonWebp} type="image/webp" />
+                <img
+                  src={dovesRibbonImg}
+                  alt="Hand-drawn doves holding ribbon illustration"
+                  className="w-full h-auto object-contain mix-blend-multiply opacity-95"
+                />
+              </picture>
             </div>
 
             {/* FOUR HANGING COUNTDOWN TAGS (Suspended directly from ribbon swag curve with tied thread loops) */}

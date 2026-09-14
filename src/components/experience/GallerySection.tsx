@@ -11,10 +11,24 @@ import galleryMojarisImg from "@/assets/gallery-mojaris-doodle.png";
 
 /* Import default sample images for fallback if gallery is empty */
 import firstMeetImg from "@/assets/first_meet.jpg";
+import firstMeetWebp from "@/assets/first_meet.webp";
 import proposalImg from "@/assets/proposal.jpg";
+import proposalWebp from "@/assets/proposal.webp";
 import dateImg from "@/assets/date.jpg";
+import dateWebp from "@/assets/date.webp";
 import laughingImg from "@/assets/laughing.jpg";
+import laughingWebp from "@/assets/laughing.webp";
 import togetherImg from "@/assets/together.jpg";
+import togetherWebp from "@/assets/together.webp";
+
+function getPhotoWebpUrl(src: string): string {
+  if (src === firstMeetImg) return firstMeetWebp;
+  if (src === proposalImg) return proposalWebp;
+  if (src === dateImg) return dateWebp;
+  if (src === laughingImg) return laughingWebp;
+  if (src === togetherImg) return togetherWebp;
+  return src.replace(/\.(jpg|png|jpeg)$/, ".webp");
+}
 
 const DEFAULT_PHOTOS: GalleryItem[] = [
   {
@@ -453,7 +467,7 @@ export function GallerySection({
                   return (
                     <image
                       key={photo.id || index}
-                      href={photo.imageUrl}
+                      href={getPhotoWebpUrl(photo.imageUrl)}
                       x="0"
                       y="0"
                       width="280"
@@ -581,11 +595,17 @@ export function GallerySection({
               return (
                 <>
                   <div className="relative overflow-hidden rounded-2xl border-2 border-accent-gold/40 shadow-2xl max-h-[75vh]">
-                    <img
-                      src={lightboxPhoto?.imageUrl ?? firstMeetImg}
-                      alt={lightboxPhoto?.caption ?? "Full view couple photo"}
-                      className="w-auto h-auto max-h-[75vh] max-w-full object-contain"
-                    />
+                    <picture className="max-h-[75vh]">
+                      <source
+                        srcSet={getPhotoWebpUrl(lightboxPhoto?.imageUrl ?? firstMeetImg)}
+                        type="image/webp"
+                      />
+                      <img
+                        src={lightboxPhoto?.imageUrl ?? firstMeetImg}
+                        alt={lightboxPhoto?.caption ?? "Full view couple photo"}
+                        className="w-auto h-auto max-h-[75vh] max-w-full object-contain"
+                      />
+                    </picture>
                   </div>
 
                   {/* Caption & Controls Bar */}

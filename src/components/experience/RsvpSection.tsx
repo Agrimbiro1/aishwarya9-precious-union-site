@@ -5,7 +5,9 @@ import type { RsvpConfig, WeddingEvent } from "@/data/types";
 import { useGuest } from "@/lib/guest";
 import { submitRsvp } from "@/lib/rsvp";
 import swanLeftTransparent from "@/assets/swan-left-transparent.png";
+import swanLeftTransparentWebp from "@/assets/swan-left-transparent.webp";
 import swanRightTransparent from "@/assets/swan-right-transparent.png";
+import swanRightTransparentWebp from "@/assets/swan-right-transparent.webp";
 
 /** Hand-Drawn Classic Pure Red Heart Doodle SVG (#DC2626 / text-red-600) */
 function RedHeartDoodle({ className = "size-4 text-red-600" }: { className?: string }) {
@@ -101,11 +103,14 @@ function SoftChalkSwanIllustration({ accepted }: { accepted: boolean }) {
             transform: accepted ? "translateX(0px)" : "translateX(-38px)",
           }}
         >
-          <img
-            src={swanLeftTransparent}
-            alt="Left White Mute Swan"
-            className="w-36 sm:w-44 h-auto object-contain drop-shadow-xs"
-          />
+          <picture>
+            <source srcSet={swanLeftTransparentWebp} type="image/webp" />
+            <img
+              src={swanLeftTransparent}
+              alt="Left White Mute Swan"
+              className="w-36 sm:w-44 h-auto object-contain drop-shadow-xs"
+            />
+          </picture>
           {/* Water Contact Shadow & Reflection Under Left Swan */}
           <div className="w-28 h-2 rounded-full bg-[#7A1E1E]/15 blur-xs -mt-2 pointer-events-none" />
         </div>
@@ -117,11 +122,14 @@ function SoftChalkSwanIllustration({ accepted }: { accepted: boolean }) {
             transform: accepted ? "translateX(0px)" : "translateX(38px)",
           }}
         >
-          <img
-            src={swanRightTransparent}
-            alt="Right White Mute Swan"
-            className="w-36 sm:w-44 h-auto object-contain drop-shadow-xs"
-          />
+          <picture>
+            <source srcSet={swanRightTransparentWebp} type="image/webp" />
+            <img
+              src={swanRightTransparent}
+              alt="Right White Mute Swan"
+              className="w-36 sm:w-44 h-auto object-contain drop-shadow-xs"
+            />
+          </picture>
           {/* Water Contact Shadow & Reflection Under Right Swan */}
           <div className="w-28 h-2 rounded-full bg-[#7A1E1E]/15 blur-xs -mt-2 pointer-events-none" />
         </div>

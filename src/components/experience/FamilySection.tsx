@@ -188,6 +188,7 @@ function renderItalicMessageWithScriptHighlight(messageText: string) {
 }
 
 import familyIllustrationAsset from "@/assets/family_group_illustration_transparent.png";
+import familyIllustrationAssetWebp from "@/assets/family_group_illustration_transparent.webp";
 
 /**
  * PART 1: Thin-Ink Hand-Drawn Family Group Illustration (Generated Asset with 100% Transparent Bleed)
@@ -196,12 +197,15 @@ import familyIllustrationAsset from "@/assets/family_group_illustration_transpar
  */
 function HandDrawnFamilyIllustration({ className = "" }: { className?: string }) {
   return (
-    <img
-      src={familyIllustrationAsset}
-      alt="Our Families hand-drawn illustration"
-      loading="lazy"
-      className={`select-none pointer-events-none w-full max-w-[23rem] sm:max-w-[26rem] h-auto object-contain filter drop-shadow-[0_2px_4px_rgba(122,30,30,0.12)] ${className}`}
-    />
+    <picture className={`select-none pointer-events-none w-full max-w-[23rem] sm:max-w-[26rem] h-auto ${className}`}>
+      <source srcSet={familyIllustrationAssetWebp} type="image/webp" />
+      <img
+        src={familyIllustrationAsset}
+        alt="Our Families hand-drawn illustration"
+        loading="lazy"
+        className="w-full h-auto object-contain filter drop-shadow-[0_2px_4px_rgba(122,30,30,0.12)]"
+      />
+    </picture>
   );
 }
 

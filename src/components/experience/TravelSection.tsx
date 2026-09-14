@@ -11,12 +11,15 @@ import type { TravelConfig, TravelOption } from "@/data/types";
 function HeritagePalaceVenueIllustration({ className = "w-full max-w-md sm:max-w-xl h-auto mx-auto" }: { className?: string }) {
   return (
     <div className={`relative flex justify-center items-center ${className}`}>
-      <img
-        src="/illustrations/jaipur-palace-venue.png"
-        alt="Jaipur Heritage Palace Venue Illustration"
-        className="w-full h-auto object-contain drop-shadow-2xs select-none pointer-events-none"
-        loading="eager"
-      />
+      <picture className="w-full h-auto">
+        <source srcSet="/illustrations/jaipur-palace-venue.webp" type="image/webp" />
+        <img
+          src="/illustrations/jaipur-palace-venue.png"
+          alt="Jaipur Heritage Palace Venue Illustration"
+          className="w-full h-auto object-contain drop-shadow-2xs select-none pointer-events-none"
+          loading="eager"
+        />
+      </picture>
     </div>
   );
 }
@@ -37,12 +40,15 @@ function WeddingCarHeartBalloonsIllustration({
 }) {
   return (
     <div className={`relative flex justify-center items-center ${className}`}>
-      <img
-        src="/illustrations/wedding-car-hearts.png"
-        alt="Vintage Wedding Getaway Car Illustration"
-        className="w-full h-auto object-contain drop-shadow-2xs select-none pointer-events-none"
-        loading="eager"
-      />
+      <picture className="w-full h-auto">
+        <source srcSet="/illustrations/wedding-car-hearts.webp" type="image/webp" />
+        <img
+          src="/illustrations/wedding-car-hearts.png"
+          alt="Vintage Wedding Getaway Car Illustration"
+          className="w-full h-auto object-contain drop-shadow-2xs select-none pointer-events-none"
+          loading="eager"
+        />
+      </picture>
       {/* Live Dynamic Initials Layer positioned over empty badge outline */}
       <div
         className="absolute left-[50.2%] top-[57.8%] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-[48%] h-[16%] text-center pointer-events-none"

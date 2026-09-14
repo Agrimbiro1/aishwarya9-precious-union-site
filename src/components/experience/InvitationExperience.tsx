@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import phoneTexture from "@/assets/phone-texture.png.asset.json";
+import { getResponsiveBackgroundImage } from "@/lib/image";
 
 /**
  * The single self-contained mobile experience shell. Sections are stacked
@@ -19,7 +20,11 @@ export function InvitationExperience({
         locked ? "overflow-y-hidden" : "overflow-y-auto"
       }`}
       style={{
-        backgroundImage: `url(${phoneTexture.url})`,
+        ...getResponsiveBackgroundImage(
+          phoneTexture.webpUrl || phoneTexture.url.replace(/\.(png|jpg|jpeg)$/, ".webp"),
+          phoneTexture.url,
+          "image/png"
+        ),
         backgroundSize: "100% auto",
         backgroundRepeat: "repeat-y",
         backgroundAttachment: "local",

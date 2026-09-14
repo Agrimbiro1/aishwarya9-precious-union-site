@@ -1,5 +1,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import desktopBg from "@/assets/desktop-bg.png";
+import desktopBgWebp from "@/assets/desktop-bg.webp";
+import { getResponsiveBackgroundImage } from "@/lib/image";
 
 const FRAME_W = 470;
 const FRAME_H = 932;
@@ -57,7 +59,7 @@ export function PhoneStage({ children }: { children: ReactNode }) {
     <div
       className="fixed inset-0 grid place-items-center overflow-hidden bg-[#faf6f0]"
       style={{
-        backgroundImage: `url(${desktopBg})`,
+        ...getResponsiveBackgroundImage(desktopBgWebp, desktopBg, "image/png"),
         backgroundSize: "cover",
         backgroundPosition: "center bottom",
         backgroundRepeat: "no-repeat",

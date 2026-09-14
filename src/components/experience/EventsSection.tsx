@@ -5,11 +5,17 @@ import { useGuest } from "@/lib/guest";
 import { formatEventWhen } from "@/lib/format";
 
 import eventFlowerImg from "@/assets/event-flower.png";
+import eventFlowerWebp from "@/assets/event-flower.webp";
 import eventPortraitMehendi from "@/assets/event-portrait-mehendi.png";
+import eventPortraitMehendiWebp from "@/assets/event-portrait-mehendi.webp";
 import eventPortraitSangeet from "@/assets/event-portrait-sangeet.png";
+import eventPortraitSangeetWebp from "@/assets/event-portrait-sangeet.webp";
 import eventPortraitHaldi from "@/assets/event-portrait-haldi.png";
+import eventPortraitHaldiWebp from "@/assets/event-portrait-haldi.webp";
 import eventPortraitWedding from "@/assets/event-portrait-wedding.png";
+import eventPortraitWeddingWebp from "@/assets/event-portrait-wedding.webp";
 import eventPortraitReception from "@/assets/event-portrait-reception.png";
+import eventPortraitReceptionWebp from "@/assets/event-portrait-reception.webp";
 
 /**
  * Mini Hand-Drawn Floral Bud / Gemstone Flourish Accent at Cardinal Ring Points
@@ -176,22 +182,27 @@ export function LocationMapLink({
 /**
  * Helper to map event IDs / index to exact cropped couple portrait asset
  */
-function getEventPortrait(id: string, index: number): string {
+function getEventPortrait(id: string, index: number): { png: string; webp: string } {
   const cleanId = id.toLowerCase();
-  if (cleanId.includes("mehendi") || cleanId.includes("mehandi")) return eventPortraitMehendi;
-  if (cleanId.includes("sangeet")) return eventPortraitSangeet;
-  if (cleanId.includes("haldi")) return eventPortraitHaldi;
-  if (cleanId.includes("wedding")) return eventPortraitWedding;
-  if (cleanId.includes("reception")) return eventPortraitReception;
+  if (cleanId.includes("mehendi") || cleanId.includes("mehandi"))
+    return { png: eventPortraitMehendi, webp: eventPortraitMehendiWebp };
+  if (cleanId.includes("sangeet"))
+    return { png: eventPortraitSangeet, webp: eventPortraitSangeetWebp };
+  if (cleanId.includes("haldi"))
+    return { png: eventPortraitHaldi, webp: eventPortraitHaldiWebp };
+  if (cleanId.includes("wedding"))
+    return { png: eventPortraitWedding, webp: eventPortraitWeddingWebp };
+  if (cleanId.includes("reception"))
+    return { png: eventPortraitReception, webp: eventPortraitReceptionWebp };
 
   const portraits = [
-    eventPortraitMehendi,
-    eventPortraitSangeet,
-    eventPortraitHaldi,
-    eventPortraitWedding,
-    eventPortraitReception,
+    { png: eventPortraitMehendi, webp: eventPortraitMehendiWebp },
+    { png: eventPortraitSangeet, webp: eventPortraitSangeetWebp },
+    { png: eventPortraitHaldi, webp: eventPortraitHaldiWebp },
+    { png: eventPortraitWedding, webp: eventPortraitWeddingWebp },
+    { png: eventPortraitReception, webp: eventPortraitReceptionWebp },
   ];
-  return portraits[index % portraits.length] ?? eventPortraitMehendi;
+  return portraits[index % portraits.length] ?? { png: eventPortraitMehendi, webp: eventPortraitMehendiWebp };
 }
 
 /**
@@ -297,11 +308,14 @@ export function EventsSection({
                     <div className="relative size-44 sm:size-52 rounded-full p-1.5 shadow-xs transition-transform duration-300 group-hover:scale-[1.02]">
                       <CircleFrameRing />
                       <div className="size-full rounded-full overflow-hidden relative bg-[#FAF5EE]">
-                        <img
-                          src={portraitSrc}
-                          alt={`${event.name} illustration`}
-                          className="size-full object-cover mix-blend-multiply transition-transform duration-500 group-hover:scale-105"
-                        />
+                        <picture className="size-full mix-blend-multiply">
+                          <source srcSet={portraitSrc.webp} type="image/webp" />
+                          <img
+                            src={portraitSrc.png}
+                            alt={`${event.name} illustration`}
+                            className="size-full object-cover mix-blend-multiply transition-transform duration-500 group-hover:scale-105"
+                          />
+                        </picture>
                       </div>
                     </div>
                   </div>
