@@ -4,8 +4,8 @@ import { Divider, DovesWithRibbon } from "./Ornaments";
 import type { RsvpConfig, WeddingEvent } from "@/data/types";
 import { useGuest } from "@/lib/guest";
 import { submitRsvp } from "@/lib/rsvp";
-import craneLeftTransparent from "@/assets/crane-left-transparent.png";
-import craneRightTransparent from "@/assets/crane-right-transparent.png";
+import swanLeftTransparent from "@/assets/swan-left-transparent.png";
+import swanRightTransparent from "@/assets/swan-right-transparent.png";
 
 /** Hand-Drawn Classic Pure Red Heart Doodle SVG (#DC2626 / text-red-600) */
 function RedHeartDoodle({ className = "size-4 text-red-600" }: { className?: string }) {
@@ -40,86 +40,90 @@ function WaterReedsDoodle({ className = "w-10 h-14 text-[#7A1E1E]/45" }: { class
 }
 
 /**
- * Anatomical Crane Illustration with Forehead Touch Pose
- * - Idle: Cranes stand apart with bodies and necks in upright posture.
- * - Accept: Cranes step closer (stopping with a clean ~40px gap between bodies) and tilt gracefully inward so beaks meet.
- * - Grounding & Atmosphere: Separate low-opacity foot contact shadows, water reeds flanking baseline, and drifting feather doodles around birds.
+ * Animated Swan Pair Illustration (Heart Pose)
+ * - Idle (accepted === false): Swans float gracefully apart on calm water.
+ * - Accept (accepted === true): Swans slide smoothly across the water towards the center, meeting beak-to-beak to form a heart shape with their curved necks.
+ * - Water Surface & Reflections: Soft ripple lines and foot contact reflections.
+ * - Heart Glow Burst: Pulsing heart aura radiating from the center void formed by their curved necks.
  */
-function SoftChalkBirdIllustration({ accepted }: { accepted: boolean }) {
+function SoftChalkSwanIllustration({ accepted }: { accepted: boolean }) {
   return (
-    <div className="relative mx-auto my-4 w-full max-w-[320px] sm:max-w-[360px] h-52 flex items-end justify-center overflow-visible pointer-events-none select-none">
-      {/* Layer 1: Background Sun Glow (Enhanced Golden Hour Core Wash) */}
-      <div className="absolute -top-4 left-1/2 -translate-x-1/2 size-40 sm:size-48 rounded-full bg-[#B8935A]/25 blur-xl pointer-events-none" />
-      <div className="absolute top-2 left-1/2 -translate-x-1/2 size-28 sm:size-32 rounded-full bg-[#B8935A]/50 blur-md pointer-events-none" />
+    <div className="relative mx-auto my-4 w-full max-w-[340px] sm:max-w-[380px] h-56 flex items-end justify-center overflow-visible pointer-events-none select-none">
+      {/* Background Sun/Aura Glow (Warm Golden Hour & Soft Blush Wash) */}
+      <div className="absolute top-2 left-1/2 -translate-x-1/2 size-40 sm:size-48 rounded-full bg-[#C98A8A]/20 blur-xl pointer-events-none" />
+      <div className="absolute top-6 left-1/2 -translate-x-1/2 size-28 sm:size-32 rounded-full bg-[#B8935A]/35 blur-md pointer-events-none" />
 
-      {/* Layer 2: Ultra-subtle fine baseline & Reeds flanking feet */}
-      <div className="absolute bottom-2.5 w-4/5 h-[1px] bg-[#7A1E1E]/15 pointer-events-none" />
-      <div className="absolute bottom-1.5 left-4 sm:left-8 z-0 opacity-80 rotate-3 pointer-events-none">
-        <WaterReedsDoodle className="w-8 sm:w-10 h-11 sm:h-14 text-[#7A1E1E]/40" />
-      </div>
-      <div className="absolute bottom-1.5 right-4 sm:right-8 z-0 opacity-80 -rotate-6 scale-x-[-1] pointer-events-none">
-        <WaterReedsDoodle className="w-8 sm:w-10 h-11 sm:h-14 text-[#7A1E1E]/40" />
+      {/* Water Surface Lines & Horizontal Water Ripples */}
+      <div className="absolute bottom-5 w-11/12 h-12 flex flex-col justify-end items-center pointer-events-none z-0">
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#7A1E1E]/25 to-transparent" />
+        <div className="w-4/5 h-[1.5px] mt-1 bg-gradient-to-r from-transparent via-[#C89B48]/35 to-transparent animate-water-ripple" />
+        <div className="w-3/5 h-[1px] mt-1 bg-gradient-to-r from-transparent via-[#7A1E1E]/20 to-transparent animate-water-ripple" style={{ animationDelay: "1.2s" }} />
       </div>
 
-      {/* Layer 3: Drifting Feather Doodles Floating in Space Around Cranes */}
-      <div className="absolute top-6 left-10 sm:left-14 z-20 opacity-65 -rotate-45 pointer-events-none">
+      {/* Water Reeds Flanking Baseline */}
+      <div className="absolute bottom-3 left-2 sm:left-6 z-0 opacity-75 rotate-3 pointer-events-none">
+        <WaterReedsDoodle className="w-8 sm:w-10 h-11 sm:h-14 text-[#7A1E1E]/40" />
+      </div>
+      <div className="absolute bottom-3 right-2 sm:right-6 z-0 opacity-75 -rotate-6 scale-x-[-1] pointer-events-none">
+        <WaterReedsDoodle className="w-8 sm:w-10 h-11 sm:h-14 text-[#7A1E1E]/40" />
+      </div>
+
+      {/* Floating Feather Doodles */}
+      <div className="absolute top-6 left-6 sm:left-10 z-20 opacity-65 -rotate-45 pointer-events-none">
         <DelicateFeatherDoodle className="w-4 sm:w-5 h-4 sm:h-5 text-[#7A1E1E]/45" />
       </div>
-      <div className="absolute top-16 right-8 sm:right-12 z-20 opacity-70 rotate-30 pointer-events-none">
+      <div className="absolute top-14 right-6 sm:right-10 z-20 opacity-70 rotate-30 pointer-events-none">
         <DelicateFeatherDoodle className="w-3.5 sm:w-4.5 h-3.5 sm:h-4.5 text-[#7A1E1E]/40" />
       </div>
-      <div className="absolute top-8 left-1/2 -translate-x-1/2 z-20 opacity-55 rotate-12 pointer-events-none">
-        <DelicateFeatherDoodle className="w-3 sm:w-4 h-3 sm:h-4 text-[#B8935A]/65" />
-      </div>
 
-      {/* Layer 4 & 5: Left Crane & Right Crane Clean Anatomical PNG Layers */}
-      <div className="relative z-10 w-full flex items-end justify-center px-2">
-        {/* Left Crane Container: Body steps right (+20px) and bows inward (+20deg) */}
+      {/* HEART GLOW BURST & PULSING HEART ICON WHEN ACCEPTED */}
+      {accepted && (
+        <div className="absolute top-[48px] sm:top-[44px] left-1/2 z-30 animate-heart-pulse-glow pointer-events-none">
+          {/* Radial Golden Heart Aura */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-20 rounded-full bg-gradient-to-r from-[#DC2626]/30 via-[#C89B48]/45 to-[#DC2626]/30 blur-md" />
+          
+          {/* Pulsing Central Red Heart Doodle */}
+          <div className="relative flex flex-col items-center justify-center">
+            <RedHeartDoodle className="size-6 sm:size-7 text-[#DC2626] drop-shadow-[0_2px_8px_rgba(220,38,38,0.6)] animate-pulse" />
+            <svg viewBox="0 0 40 12" className="w-10 h-3 text-[#C89B48] opacity-80 mt-0.5" fill="none" stroke="currentColor" strokeWidth="1.2">
+              <path d="M 4 6 Q 20 1 36 6" />
+            </svg>
+          </div>
+        </div>
+      )}
+
+      {/* Left & Right Swan Layer Containers */}
+      <div className="relative z-10 w-full flex items-end justify-center px-1 overflow-visible">
+        {/* Left Swan Container: Glide from translateX(-38px) to translateX(0px) on accept */}
         <div
-          className="relative transition-transform duration-1000 ease-[cubic-bezier(0.37,0,0.63,1)] flex flex-col items-center"
+          className="relative transition-transform duration-[1200ms] ease-[cubic-bezier(0.37,0,0.63,1)] flex flex-col items-center"
           style={{
-            transform: accepted ? "translateX(20px)" : "translateX(0px)",
+            transform: accepted ? "translateX(0px)" : "translateX(-38px)",
           }}
         >
-          <div
-            className="transition-transform duration-1000 ease-[cubic-bezier(0.37,0,0.63,1)]"
-            style={{
-              transform: accepted ? "rotate(20deg) translateY(4px)" : "rotate(0deg) translateY(0px)",
-              transformOrigin: "35% 85%",
-            }}
-          >
-            <img
-              src={craneLeftTransparent}
-              alt="Left Japanese Red-Crowned Crane"
-              className="w-28 sm:w-32 h-auto object-contain mix-blend-multiply opacity-95 drop-shadow-xs"
-            />
-          </div>
-          {/* Small, independent, soft low-opacity contact shadow under Left Crane feet only */}
-          <div className="w-14 h-1 rounded-full bg-[#7A1E1E]/12 blur-xs -mt-1 pointer-events-none" />
+          <img
+            src={swanLeftTransparent}
+            alt="Left White Mute Swan"
+            className="w-36 sm:w-44 h-auto object-contain drop-shadow-xs"
+          />
+          {/* Water Contact Shadow & Reflection Under Left Swan */}
+          <div className="w-28 h-2 rounded-full bg-[#7A1E1E]/15 blur-xs -mt-2 pointer-events-none" />
         </div>
 
-        {/* Right Crane Container: Body steps left (-20px) and bows inward (-20deg) */}
+        {/* Right Swan Container: Glide from translateX(38px) to translateX(0px) on accept */}
         <div
-          className="relative transition-transform duration-1000 ease-[cubic-bezier(0.37,0,0.63,1)] flex flex-col items-center"
+          className="relative transition-transform duration-[1200ms] ease-[cubic-bezier(0.37,0,0.63,1)] flex flex-col items-center"
           style={{
-            transform: accepted ? "translateX(-20px)" : "translateX(0px)",
+            transform: accepted ? "translateX(0px)" : "translateX(38px)",
           }}
         >
-          <div
-            className="transition-transform duration-1000 ease-[cubic-bezier(0.37,0,0.63,1)]"
-            style={{
-              transform: accepted ? "rotate(-20deg) translateY(4px)" : "rotate(0deg) translateY(0px)",
-              transformOrigin: "65% 85%",
-            }}
-          >
-            <img
-              src={craneRightTransparent}
-              alt="Right Japanese Red-Crowned Crane"
-              className="w-26 sm:w-30 h-auto object-contain mix-blend-multiply opacity-95 drop-shadow-xs"
-            />
-          </div>
-          {/* Small, independent, soft low-opacity contact shadow under Right Crane feet only */}
-          <div className="w-12 h-1 rounded-full bg-[#7A1E1E]/12 blur-xs -mt-1 pointer-events-none" />
+          <img
+            src={swanRightTransparent}
+            alt="Right White Mute Swan"
+            className="w-36 sm:w-44 h-auto object-contain drop-shadow-xs"
+          />
+          {/* Water Contact Shadow & Reflection Under Right Swan */}
+          <div className="w-28 h-2 rounded-full bg-[#7A1E1E]/15 blur-xs -mt-2 pointer-events-none" />
         </div>
       </div>
     </div>
@@ -364,8 +368,8 @@ export function RsvpSection({
       {/* Thematic Hand-Drawn Heart & Gold Hairline Divider */}
       <RsvpThematicHeartDivider className="mx-auto mt-3 h-4 w-44 mb-1" />
 
-      {/* Interactive Soft Chalk Bird Illustration Positioned directly below heading (Zero background card box) */}
-      <SoftChalkBirdIllustration accepted={accepted} />
+      {/* Interactive Soft Chalk Swan Pair Illustration Positioned directly below heading */}
+      <SoftChalkSwanIllustration accepted={accepted} />
 
       <div className="mx-auto w-full max-w-md">
         {accepted ? (
