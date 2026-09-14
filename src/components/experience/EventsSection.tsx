@@ -135,8 +135,8 @@ export function GoldenRibbonConnector({ isLeftToRight }: { isLeftToRight: boolea
 }
 
 /**
- * Location Pin Link taking user to Google Maps for the venue.
- * Features a dual metallic gold hairline border with maroon inner accent matching the invitation craft system.
+ * Location Pin Logo Link taking user to Google Maps for the venue.
+ * Compact circular gold-bordered location pin icon button.
  */
 export function LocationMapLink({
   mapUrl,
@@ -151,28 +151,24 @@ export function LocationMapLink({
       href={mapUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-[#C89B48]/75 bg-[#FAF5EE] px-3.5 py-1 text-[0.62rem] sm:text-[0.68rem] font-heading font-semibold uppercase tracking-[0.2em] text-[#7A1E1E] shadow-[0_1px_4px_rgba(200,155,72,0.18)] hover:border-[#7A1E1E] hover:bg-[#7A1E1E] hover:text-[#FFF5DF] hover:shadow-[0_2px_8px_rgba(122,30,30,0.25)] transition-all duration-250 group/btn ring-1 ring-[#7A1E1E]/20"
+      className="mt-2.5 inline-flex items-center justify-center size-8 sm:size-8.5 rounded-full border border-[#C89B48]/85 bg-[#FAF5EE] text-[#7A1E1E] shadow-[0_1.5px_4px_rgba(200,155,72,0.22)] hover:border-[#7A1E1E] hover:bg-[#7A1E1E] hover:text-[#FFF5DF] hover:shadow-[0_3px_10px_rgba(122,30,30,0.32)] hover:scale-110 active:scale-95 transition-all duration-200 group/btn ring-1 ring-[#7A1E1E]/20 select-none"
       aria-label={`View ${venueName} on Google Maps`}
+      title={`View ${venueName} on Google Maps`}
     >
       {/* Location Pin Icon in Foil Gold / Maroon */}
       <svg
-        className="size-3 text-[#C89B48] group-hover/btn:text-[#E6C687] transition-colors duration-200"
+        className="size-4 text-[#C89B48] group-hover/btn:text-[#E6C687] transition-colors duration-200"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        strokeWidth="2.2"
+        strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
         aria-hidden="true"
       >
-        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" fill="currentColor" fillOpacity="0.18" />
-        <circle cx="12" cy="10" r="2.8" fill="#7A1E1E" className="group-hover/btn:fill-[#FFF5DF] transition-colors" />
+        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" fill="currentColor" fillOpacity="0.25" />
+        <circle cx="12" cy="10" r="2.8" fill="#7A1E1E" className="group-hover/btn:fill-[#FFF5DF] transition-colors duration-200" />
       </svg>
-      <span>View Map</span>
-      {/* Micro Metallic Gold Accent Diamond */}
-      <span className="text-[#C89B48] text-[0.55rem] group-hover/btn:text-[#E6C687] transition-colors ml-0.5" aria-hidden="true">
-        ✦
-      </span>
     </a>
   );
 }
